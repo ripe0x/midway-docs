@@ -1,0 +1,9 @@
+{
+  "name": "midway-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "render": "node scripts/render.mjs"
+  }
+}
