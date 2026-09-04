@@ -77,7 +77,7 @@ Testnet addresses. Never use a Sepolia address on mainnet.
 
 - **Release**: `9ccbfb18`
 - **Deploy block**: 11581653
-- **Source**: `midway-v1-audit-rc11-25-g8020e0fd` (`9ccbfb18`)
+- **Source**: `null` (`9ccbfb18`)
 - **Note**: graph 4, frozen-tag deploy 2026-08-28 01:35Z for the final rehearsal
 
 ### Contracts
