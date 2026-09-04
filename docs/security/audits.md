@@ -10,4 +10,4 @@ Midway v1 shipped as release `midway-v1-audit-rc11` after these review passes, a
 
 The independent RC11 pass was run by a reviewing agent under the owner's direction, not by a third party security firm. Its findings and dispositions are recorded with the release.
 
-Contract source is verified on chain at every address on the [Deployments](../reference/deployments.md) page. The deployed runtime code hashes are recorded in the release data.
+Contract source is verified (Sourcify full match, creation and runtime) at every address on the [Deployments](../reference/deployments.md) page. The deployed runtime code hashes are recorded in the release data.

@@ -6,9 +6,10 @@
 
 - **Release**: `midway-v1-audit-rc11`
 - **Deploy block**: 25906101
-- **Source**: `midway-v1-audit-rc11-22-gc41b00f2` (`c41b00f2`)
+- **Source**: `midway-v1-audit-rc11-24-g22789f5b` (`22789f5b`)
 - **Deployer**: [`0xCB43078C32423F5348Cab5885911C3B5faE217F9`](https://evm.now/address/0xCB43078C32423F5348Cab5885911C3B5faE217F9?chainId=1)
 - **Owner**: [`0x105a823B6e7215dBC78083259A772A6C7BA2610E`](https://evm.now/address/0x105a823B6e7215dBC78083259A772A6C7BA2610E?chainId=1)
+- **Status**: Paused. Activation pending.
 
 ### Contracts
 

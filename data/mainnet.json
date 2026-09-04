@@ -1,9 +1,9 @@
 {
   "chainId": 1,
   "releaseId": "midway-v1-audit-rc11",
-  "tag": "midway-v1-audit-rc11-22-gc41b00f2",
-  "commit": "c41b00f2",
-  "exportedAt": "2026-09-04T21:49:01.375Z",
+  "tag": "midway-v1-audit-rc11-24-g22789f5b",
+  "commit": "22789f5b",
+  "exportedAt": "2026-09-04T21:58:17.978Z",
   "deployBlock": 25906101,
   "deployer": "0xCB43078C32423F5348Cab5885911C3B5faE217F9",
   "owner": "0x105a823B6e7215dBC78083259A772A6C7BA2610E",
@@ -131,5 +131,6 @@
       "explorerUrl": "https://evm.now/address/0x727C739F07A89f11E883FE0F34937c55e4c3d74A?chainId=1",
       "restricted": true
     }
-  ]
+  ],
+  "status": "paused"
 }
