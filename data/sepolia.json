@@ -1,0 +1,95 @@
+{
+  "chainId": 11155111,
+  "releaseId": "9ccbfb18",
+  "tag": "midway-v1-audit-rc11-22-gc41b00f2",
+  "commit": "c41b00f2",
+  "exportedAt": "2026-09-04T21:49:01.375Z",
+  "deployBlock": 11581653,
+  "contracts": [
+    {
+      "name": "RewardVault",
+      "key": "rewardVault",
+      "address": "0xf5c3eC7e185d0a592264791D523496EA6e368753",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0xf5c3eC7e185d0a592264791D523496EA6e368753?chainId=11155111"
+    },
+    {
+      "name": "MidwayRegistry",
+      "key": "registry",
+      "address": "0x68a8ca83296cB8Cf78F6524B96cb8b49890618AD",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0x68a8ca83296cB8Cf78F6524B96cb8b49890618AD?chainId=11155111"
+    },
+    {
+      "name": "AssetPolicy",
+      "key": "assetPolicy",
+      "address": "0xed3E9D3Bf693372060b7ce62aDB49650145b2ba9",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0xed3E9D3Bf693372060b7ce62aDB49650145b2ba9?chainId=11155111"
+    },
+    {
+      "name": "MidwayBuyer",
+      "key": "buyer",
+      "address": "0x3ab4b628AB844a723235F08554C49B5Dd54c56BD",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0x3ab4b628AB844a723235F08554C49B5Dd54c56BD?chainId=11155111"
+    },
+    {
+      "name": "SharedUpside",
+      "key": "sharedUpside",
+      "address": "0xCd7eE161a7aA9f49F7d970CF3B31fE5ac6D20Ca7",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0xCd7eE161a7aA9f49F7d970CF3B31fE5ac6D20Ca7?chainId=11155111"
+    },
+    {
+      "name": "RequestBuyer",
+      "key": "requestBuyerImpl",
+      "address": "0x6B12087053f98A9c22c01F769fE5f6FD4814c783",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0x6B12087053f98A9c22c01F769fE5f6FD4814c783?chainId=11155111"
+    },
+    {
+      "name": "ReferralRewards",
+      "key": "referralRewards",
+      "address": "0x40aa9edb0063ca5d12eef8A53be45F7e15a3Fe10",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0x40aa9edb0063ca5d12eef8A53be45F7e15a3Fe10?chainId=11155111"
+    },
+    {
+      "name": "RewardSplitter",
+      "key": "rewardSplitter",
+      "address": "0x760421B7916917Ffd72ECeAa4c1F7ffC4D12eEc7",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0x760421B7916917Ffd72ECeAa4c1F7ffC4D12eEc7?chainId=11155111"
+    },
+    {
+      "name": "FwaEngineV1",
+      "key": "engine",
+      "address": "0x46496AB504d6eb0BD98aC4A5AA9e3DfA718A1fFa",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0x46496AB504d6eb0BD98aC4A5AA9e3DfA718A1fFa?chainId=11155111"
+    },
+    {
+      "name": "ChainlinkVrfAdapter",
+      "key": "vrfAdapter",
+      "address": "0xB03Cbd862F47059e928C113182814c676eA29d4c",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0xB03Cbd862F47059e928C113182814c676eA29d4c?chainId=11155111"
+    },
+    {
+      "name": "MidwayBatchAccountFactory",
+      "key": "batchFactory",
+      "address": "0xeBD9B74A4c26C6E54e83C84CB247c069eC42A961",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0xeBD9B74A4c26C6E54e83C84CB247c069eC42A961?chainId=11155111"
+    },
+    {
+      "name": "PrizeReserve",
+      "key": "prizeReserve",
+      "address": "0xA96a11257890ED1C43C16c098E286e18e45E6258",
+      "codeHash": null,
+      "explorerUrl": "https://evm.now/address/0xA96a11257890ED1C43C16c098E286e18e45E6258?chainId=11155111"
+    }
+  ],
+  "note": "graph 4, frozen-tag deploy 2026-08-28 01:35Z for the final rehearsal"
+}

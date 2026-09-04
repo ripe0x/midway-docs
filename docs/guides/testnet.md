@@ -22,5 +22,6 @@ Two FWA permissions are separate:
   registration is permissionless through FWA's `FWATokenDistributorOwner.setDistributor(integrationAddress)`.
   On mainnet, the FWA team must review and approve the contract.
 - The Sepolia graph also carries a `PrizeReserve` adapter that must be an authorized FWA protocol buyer
-  when the FWA hook has external buys closed. The mainnet graph has no PrizeReserve: the whole Midway
+  when the FWA hook has external buys closed. That permission controls fee conversion only; it is not
+  the distributor permission and does not affect ordinary Midway settlement. The mainnet graph has no PrizeReserve: the whole Midway
   fee goes to treasury and the Shared Upside pot is fed by the reward skim.

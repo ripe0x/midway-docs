@@ -1,0 +1,109 @@
+{
+  "tag": "midway-v1-audit-rc11-22-gc41b00f2",
+  "commit": "c41b00f2",
+  "exportedAt": "2026-09-04T21:49:01.375Z",
+  "entries": [
+    {
+      "key": "midwayFeeBps",
+      "value": 50,
+      "unit": "bps",
+      "description": "Midway fee on terminal fulfilled measured FWA spend, in basis points. Hard cap 300."
+    },
+    {
+      "key": "treasuryShareBps",
+      "value": 10000,
+      "unit": "bps",
+      "description": "Share of the Midway fee sent to treasury, in basis points. 10000 sends the whole fee."
+    },
+    {
+      "key": "referralShareBps",
+      "value": 0,
+      "unit": "bps",
+      "description": "Share of the Midway fee paid to the referrer, in basis points. Zero at launch."
+    },
+    {
+      "key": "rewardSkimBps",
+      "value": 2500,
+      "unit": "bps",
+      "description": "Share of purchaser rewards skimmed into the Shared Upside pot, in basis points."
+    },
+    {
+      "key": "genesisStart",
+      "value": 1788825600,
+      "unit": "unix timestamp",
+      "description": "Unix timestamp when the first Shared Upside cycle begins."
+    },
+    {
+      "key": "cycleInterval",
+      "value": 604800,
+      "unit": "seconds",
+      "description": "Length of each Shared Upside cycle, in seconds."
+    },
+    {
+      "key": "minimumManagedFwaPayout",
+      "value": "10000000000000000",
+      "unit": "wei",
+      "description": "Minimum FWA payout, in wei, below which managed settlement falls back to ETH."
+    },
+    {
+      "key": "fwaConversionFloorRate",
+      "value": "0",
+      "unit": "wei",
+      "description": "Minimum FWA per ETH conversion rate the floor enforces, scaled by 1e18, or zero to disable the floor."
+    },
+    {
+      "key": "fwaConversionSlippageCapBps",
+      "value": 300,
+      "unit": "bps",
+      "description": "Maximum slippage the conversion floor tolerates against its TWAP reference, in basis points."
+    },
+    {
+      "key": "fwaConversionObservationWindowBlocks",
+      "value": 64,
+      "unit": "blocks",
+      "description": "Number of blocks the conversion floor's TWAP observation window spans."
+    },
+    {
+      "key": "fwaConversionMinObservations",
+      "value": 4,
+      "unit": "count",
+      "description": "Minimum number of price observations required before the conversion floor is valid."
+    },
+    {
+      "key": "keyHash",
+      "value": "0x8077df514608a09f83e4e8d300645594e5d7234665448ba83f51a50f842bd3d9",
+      "unit": "bytes32",
+      "description": "Chainlink VRF gas lane key hash used for randomness requests."
+    },
+    {
+      "key": "subscriptionId",
+      "value": "44016386285726682916154449817943348164193184689791610076852682619801614355917",
+      "unit": "id",
+      "description": "Chainlink VRF subscription ID that funds randomness requests."
+    },
+    {
+      "key": "confirmations",
+      "value": 3,
+      "unit": "count",
+      "description": "Number of block confirmations Chainlink VRF waits before fulfilling a request."
+    },
+    {
+      "key": "callbackGas",
+      "value": 400000,
+      "unit": "count",
+      "description": "Gas limit supplied to the VRF fulfillment callback."
+    },
+    {
+      "key": "nativePayment",
+      "value": true,
+      "unit": "bool",
+      "description": "Whether VRF requests are paid in native ETH rather than LINK."
+    },
+    {
+      "key": "minimumVrfNativeBalanceWei",
+      "value": "20000000000000000",
+      "unit": "wei",
+      "description": "Minimum native ETH balance, in wei, the VRF subscription must hold before the keeper tops it up."
+    }
+  ]
+}

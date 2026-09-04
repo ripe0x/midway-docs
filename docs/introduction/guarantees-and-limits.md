@@ -25,6 +25,7 @@ For every accepted request:
 - settlement and refunds pay the recorded account, never the transaction caller;
 - an acquisition pause does not pause any historical exit;
 - a new active Engine changes only future requests;
+- existing requests never acquire new behavior retroactively;
 - Asset Policy failure may deny NFT delivery but not ETH or refunds; and
 - optional reward, referral, reserve, or Shared Upside work cannot redirect ETH or refunds.
 
