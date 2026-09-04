@@ -29,6 +29,12 @@ const SLUGS = {
   MidwayBatchAccount: "midway-batch-account",
 };
 
+function sourceLine(book) {
+  if (book.tag && book.commit) return `tag ${code(book.tag)}, commit ${code(book.commit)}`;
+  if (book.commit) return `commit ${code(book.commit)}`;
+  return "unrecorded";
+}
+
 function readJson(name) {
   return JSON.parse(readFileSync(path.join(dataDir, name), "utf8"));
 }
@@ -169,7 +175,7 @@ function renderMainnetSection() {
   lines.push("");
   lines.push(`- **Release**: ${code(mainnet.releaseId)}`);
   lines.push(`- **Deploy block**: ${mainnet.deployBlock}`);
-  lines.push(`- **Source**: ${code(mainnet.tag)} (${code(mainnet.commit)})`);
+  lines.push(`- **Source**: ${sourceLine(mainnet)}`);
   if (mainnet.deployer) {
     lines.push(`- **Deployer**: ${addressLink(mainnet.deployer, mainnet.chainId)}`);
   }
@@ -227,7 +233,7 @@ function renderSepoliaSection() {
   lines.push("");
   lines.push(`- **Release**: ${code(sepolia.releaseId)}`);
   lines.push(`- **Deploy block**: ${sepolia.deployBlock}`);
-  lines.push(`- **Source**: ${code(sepolia.tag)} (${code(sepolia.commit)})`);
+  lines.push(`- **Source**: ${sourceLine(sepolia)}`);
   if (sepolia.status === "paused") {
     lines.push(`- **Status**: Paused. Activation pending.`);
   }
