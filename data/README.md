@@ -6,7 +6,7 @@ generate the reference pages under `docs/reference/`:
 - `mainnet.json`: deployed contract addresses on mainnet
 - `sepolia.json`: deployed contract addresses on Sepolia
 - `config.json`: launch configuration values (fees, limits, parameters)
-- `reference.json`: contract-level reference data (functions, events, roles)
+- `reference.json`: contract-level reference data (functions, events, errors)
 
 These files are exported from the protocol repository as part of each
 release. They are the only place a contract address is allowed to appear in

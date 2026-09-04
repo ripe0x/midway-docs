@@ -49,6 +49,7 @@
   * [FwaConversionFloor](reference/contracts/fwa-conversion-floor.md)
   * [ChainlinkVrfAdapter](reference/contracts/chainlink-vrf-adapter.md)
   * [MidwayBatchAccountFactory](reference/contracts/midway-batch-account-factory.md)
+  * [MidwayBatchAccount](reference/contracts/midway-batch-account.md)
 
 ## Security and trust
 

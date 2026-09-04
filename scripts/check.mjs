@@ -6,10 +6,14 @@
 // 3. No file under docs/ may contain an em dash or en dash.
 // 4. No file under docs/ may reference the private source repo, a local
 //    filesystem path, or a secret-shaped term.
+// 5. scripts/render.mjs, run into a scratch directory, must produce output
+//    byte-identical to the committed reference pages.
 
-import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync, mkdtempSync, rmSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { tmpdir } from "node:os";
+import { execFileSync } from "node:child_process";
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const docsDir = path.join(root, "docs");
@@ -81,6 +85,31 @@ for (const file of allDocsFiles) {
       }
     }
   });
+}
+
+// 5. rendered output must match the committed reference pages exactly
+const scratchDir = mkdtempSync(path.join(tmpdir(), "midway-docs-render-"));
+try {
+  execFileSync(process.execPath, [path.join(root, "scripts", "render.mjs"), scratchDir], {
+    stdio: "pipe",
+  });
+
+  const rendered = walk(scratchDir);
+  for (const file of rendered) {
+    const rel = path.relative(scratchDir, file);
+    const committed = path.join(docsDir, "reference", rel);
+    if (!existsSync(committed)) {
+      failures.push(`render output has no committed counterpart: docs/reference/${rel}`);
+      continue;
+    }
+    const renderedContent = readFileSync(file, "utf8");
+    const committedContent = readFileSync(committed, "utf8");
+    if (renderedContent !== committedContent) {
+      failures.push(`docs/reference/${rel} is stale: run "npm run render"`);
+    }
+  }
+} finally {
+  rmSync(scratchDir, { recursive: true, force: true });
 }
 
 if (failures.length > 0) {
