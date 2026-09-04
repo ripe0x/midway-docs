@@ -18,9 +18,9 @@ active immutable Engine -----> one RequestBuyer -----> pinned FWA version
        |                              +---- request refund / forced ETH / NFT
        |
        +---- live AssetPolicy
-       +---- fixed RewardSplitter ----> RewardVault
-       +---- protocol treasury
-       +---- PrizeReserve ------------> SharedUpside ----> application award balance
+       +---- fixed RewardSplitter ----> RewardVault (application pot)
+       |                          +--> SharedUpside pot ----> application award balance
+       +---- protocol treasury (Midway fee)
 ```
 
 An application may use a first-party `MidwayBatchAccount` in the application account position. The
@@ -34,8 +34,8 @@ Engine privilege.
 - **RequestBuyer** is the direct FWA purchaser for exactly one request.
 - **MidwayRegistry** records self-service applications, accounts, recipients, referrers, and launch access.
 - **RewardVault** holds $FWA with a separate attributed balance for each owner.
-- **RewardSplitter** separates application purchaser rewards from the Shared Upside skim.
-- **PrizeReserve** buys $FWA for the Shared Upside prize pot when it can meet FWAToken's live floor.
+- **RewardSplitter** separates application purchaser rewards from the Shared Upside skim. The skim is the only source of the Shared Upside pot on mainnet; the Midway ETH fee goes to treasury in full.
+- **FwaConversionFloor** bounds every engine driven $FWA buy with the strictest of a spot relative floor, FWAToken's own floor, and an optional operator floor.
 - **SharedUpside** records spend weight and recurring awards.
 
 There is no separate Kernel. `MidwayBuyer` owns the active-Engine and fee configuration for new
