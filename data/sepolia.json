@@ -1,9 +1,9 @@
 {
   "chainId": 11155111,
   "releaseId": "9ccbfb18",
-  "tag": "midway-v1-audit-rc11-22-gc41b00f2",
-  "commit": "c41b00f2",
-  "exportedAt": "2026-09-04T21:49:01.375Z",
+  "tag": "midway-v1-audit-rc11-25-g8020e0fd",
+  "commit": "9ccbfb18",
+  "exportedAt": "2026-09-04T22:00:20.480Z",
   "deployBlock": 11581653,
   "contracts": [
     {

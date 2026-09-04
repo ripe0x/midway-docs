@@ -1,9 +1,9 @@
 {
   "chainId": 1,
   "releaseId": "midway-v1-audit-rc11",
-  "tag": "midway-v1-audit-rc11-24-g22789f5b",
-  "commit": "22789f5b",
-  "exportedAt": "2026-09-04T21:58:17.978Z",
+  "tag": "midway-v1-audit-rc11",
+  "commit": "735d3272b4d1e9de919898928065d0ca4a9681eb",
+  "exportedAt": "2026-09-04T22:00:20.480Z",
   "deployBlock": 25906101,
   "deployer": "0xCB43078C32423F5348Cab5885911C3B5faE217F9",
   "owner": "0x105a823B6e7215dBC78083259A772A6C7BA2610E",

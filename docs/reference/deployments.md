@@ -6,7 +6,7 @@
 
 - **Release**: `midway-v1-audit-rc11`
 - **Deploy block**: 25906101
-- **Source**: `midway-v1-audit-rc11-24-g22789f5b` (`22789f5b`)
+- **Source**: `midway-v1-audit-rc11` (`735d3272b4d1e9de919898928065d0ca4a9681eb`)
 - **Deployer**: [`0xCB43078C32423F5348Cab5885911C3B5faE217F9`](https://evm.now/address/0xCB43078C32423F5348Cab5885911C3B5faE217F9?chainId=1)
 - **Owner**: [`0x105a823B6e7215dBC78083259A772A6C7BA2610E`](https://evm.now/address/0x105a823B6e7215dBC78083259A772A6C7BA2610E?chainId=1)
 - **Status**: Paused. Activation pending.
@@ -77,7 +77,7 @@ Testnet addresses. Never use a Sepolia address on mainnet.
 
 - **Release**: `9ccbfb18`
 - **Deploy block**: 11581653
-- **Source**: `midway-v1-audit-rc11-22-gc41b00f2` (`c41b00f2`)
+- **Source**: `midway-v1-audit-rc11-25-g8020e0fd` (`9ccbfb18`)
 - **Note**: graph 4, frozen-tag deploy 2026-08-28 01:35Z for the final rehearsal
 
 ### Contracts

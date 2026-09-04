@@ -1,7 +1,7 @@
 {
-  "tag": "midway-v1-audit-rc11-22-gc41b00f2",
-  "commit": "c41b00f2",
-  "exportedAt": "2026-09-04T21:49:01.375Z",
+  "tag": "midway-v1-audit-rc11-25-g8020e0fd",
+  "commit": "8020e0fd",
+  "exportedAt": "2026-09-04T22:00:20.480Z",
   "entries": [
     {
       "key": "midwayFeeBps",
@@ -55,13 +55,13 @@
       "key": "fwaConversionSlippageCapBps",
       "value": 300,
       "unit": "bps",
-      "description": "Maximum slippage the conversion floor tolerates against its TWAP reference, in basis points."
+      "description": "Allowed shortfall below the observed pool price window, in basis points. At most 1000. Zero disables the spot leg."
     },
     {
       "key": "fwaConversionObservationWindowBlocks",
       "value": 64,
       "unit": "blocks",
-      "description": "Number of blocks the conversion floor's TWAP observation window spans."
+      "description": "Length of the observed price window, in blocks, split into eight buckets. Range 8 to 7200."
     },
     {
       "key": "fwaConversionMinObservations",

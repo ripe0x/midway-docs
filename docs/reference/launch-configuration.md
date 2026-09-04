@@ -12,8 +12,8 @@
 | `cycleInterval` | `604800` (7 days) | seconds | Length of each Shared Upside cycle, in seconds. |
 | `minimumManagedFwaPayout` | `10000000000000000` (0.01 ETH) | wei | Minimum FWA payout, in wei, below which managed settlement falls back to ETH. |
 | `fwaConversionFloorRate` | `0` (0 ETH) | wei | Minimum FWA per ETH conversion rate the floor enforces, scaled by 1e18, or zero to disable the floor. |
-| `fwaConversionSlippageCapBps` | `300` (3%) | bps | Maximum slippage the conversion floor tolerates against its TWAP reference, in basis points. |
-| `fwaConversionObservationWindowBlocks` | `64` | blocks | Number of blocks the conversion floor's TWAP observation window spans. |
+| `fwaConversionSlippageCapBps` | `300` (3%) | bps | Allowed shortfall below the observed pool price window, in basis points. At most 1000. Zero disables the spot leg. |
+| `fwaConversionObservationWindowBlocks` | `64` | blocks | Length of the observed price window, in blocks, split into eight buckets. Range 8 to 7200. |
 | `fwaConversionMinObservations` | `4` | count | Minimum number of price observations required before the conversion floor is valid. |
 | `keyHash` | `0x8077df514608a09f83e4e8d300645594e5d7234665448ba83f51a50f842bd3d9` | bytes32 | Chainlink VRF gas lane key hash used for randomness requests. |
 | `subscriptionId` | `44016386285726682916154449817943348164193184689791610076852682619801614355917` | id | Chainlink VRF subscription ID that funds randomness requests. |
