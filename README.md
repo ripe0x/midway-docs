@@ -16,6 +16,23 @@ script instead, then run:
 npm run render
 ```
 
+## Build
+
+This same tree serves two outputs from the same markdown: GitBook Git Sync (reads
+`.gitbook.yaml`, `docs/README.md`, `docs/SUMMARY.md` directly) and a static site built with
+[VitePress](https://vitepress.dev) and deployed on Netlify (`netlify.toml`, config in
+`docs/.vitepress/`). Neither one requires changes to the page layout; the VitePress config
+derives its sidebar from `docs/SUMMARY.md` and maps GitBook's `README.md` convention onto
+VitePress's `index.md` routing.
+
+```bash
+npm ci
+npm run build
+```
+
+Output goes to `docs/.vitepress/dist`. `npm run docs:dev` runs a local dev server; `npm run
+preview` serves the built output.
+
 ## Contributing
 
 1. Edit files under `docs/`. Follow the existing page structure and keep
