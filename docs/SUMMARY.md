@@ -56,7 +56,6 @@
 * [Operator powers](security/operator-powers.md)
 * [Limits and restricted assets](security/limits-and-restricted-assets.md)
 * [Known limitations](security/known-limitations.md)
-* [Audits](security/audits.md)
 
 ## Changelog
 
