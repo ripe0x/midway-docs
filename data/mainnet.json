@@ -26,7 +26,7 @@
       "name": "AssetPolicy",
       "key": "assetPolicy",
       "address": "0xeDa2Feb255D3474564212F50B263c4C4a950C0b6",
-      "codeHash": null,
+      "codeHash": "0x525cecf1b4e8d7a7e0354ff15d9645c6c652d319f4a71e23a14aff3aa66c802c",
       "explorerUrl": "https://evm.now/address/0xeDa2Feb255D3474564212F50B263c4C4a950C0b6?chainId=1"
     },
     {
@@ -40,7 +40,7 @@
       "name": "SharedUpside",
       "key": "sharedUpside",
       "address": "0x5710A58688E452122a917f656F80Ca0AAD50bd06",
-      "codeHash": null,
+      "codeHash": "0xfe5e760c247667ff4cd06cc2ea7e87f38c1db5e32e659008ecaa0a124848d93a",
       "explorerUrl": "https://evm.now/address/0x5710A58688E452122a917f656F80Ca0AAD50bd06?chainId=1"
     },
     {
@@ -54,14 +54,14 @@
       "name": "ReferralRewards",
       "key": "referralRewards",
       "address": "0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E",
-      "codeHash": null,
+      "codeHash": "0xd596cbdff2d266a59fb5535b51758c5abdf69d7f1fdc8501dba1f85d1a831973",
       "explorerUrl": "https://evm.now/address/0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E?chainId=1"
     },
     {
       "name": "RewardSplitter",
       "key": "rewardSplitter",
       "address": "0x4d7BE30350C94487c33b43c2462767679dcCC15d",
-      "codeHash": null,
+      "codeHash": "0xa98d118cdbd7b20fd727a7f02d0aa8365a351c0c12cf4d45cce42f5fa1dbf210",
       "explorerUrl": "https://evm.now/address/0x4d7BE30350C94487c33b43c2462767679dcCC15d?chainId=1"
     },
     {
@@ -82,14 +82,14 @@
       "name": "ChainlinkVrfAdapter",
       "key": "vrfAdapter",
       "address": "0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C",
-      "codeHash": null,
+      "codeHash": "0x93fe52b22d081b0a59315d1c6131b6881ff6816c89c6382bf599a1164d3039f1",
       "explorerUrl": "https://evm.now/address/0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C?chainId=1"
     },
     {
       "name": "MidwayBatchAccountFactory",
       "key": "batchFactory",
       "address": "0x510EA3199B5423871b93d4FA946fc69c88dC6001",
-      "codeHash": null,
+      "codeHash": "0x36c15cb8b0cbfab9a2b2aeb853f55bd9d930d736214164691e4d33fdad8cee9d",
       "explorerUrl": "https://evm.now/address/0x510EA3199B5423871b93d4FA946fc69c88dC6001?chainId=1"
     }
   ],

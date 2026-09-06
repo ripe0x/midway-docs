@@ -17,16 +17,16 @@
 | --- | --- | --- |
 | RewardVault | [`0xaA9178647be2C670E8998364caa44d3F4FE25D46`](https://evm.now/address/0xaA9178647be2C670E8998364caa44d3F4FE25D46?chainId=1) | `0x25291316...` |
 | MidwayRegistry | [`0x072faB53363817e7F1dDd1AD9EC38D07604a5e1b`](https://evm.now/address/0x072faB53363817e7F1dDd1AD9EC38D07604a5e1b?chainId=1) | `0x711d5445...` |
-| AssetPolicy | [`0xeDa2Feb255D3474564212F50B263c4C4a950C0b6`](https://evm.now/address/0xeDa2Feb255D3474564212F50B263c4C4a950C0b6?chainId=1) | not recorded |
+| AssetPolicy | [`0xeDa2Feb255D3474564212F50B263c4C4a950C0b6`](https://evm.now/address/0xeDa2Feb255D3474564212F50B263c4C4a950C0b6?chainId=1) | `0x525cecf1...` |
 | MidwayBuyer | [`0x3DE80E9583a25e9E9B4b444a3392c00b911D7b7F`](https://evm.now/address/0x3DE80E9583a25e9E9B4b444a3392c00b911D7b7F?chainId=1) | `0x7731df62...` |
-| SharedUpside | [`0x5710A58688E452122a917f656F80Ca0AAD50bd06`](https://evm.now/address/0x5710A58688E452122a917f656F80Ca0AAD50bd06?chainId=1) | not recorded |
+| SharedUpside | [`0x5710A58688E452122a917f656F80Ca0AAD50bd06`](https://evm.now/address/0x5710A58688E452122a917f656F80Ca0AAD50bd06?chainId=1) | `0xfe5e760c...` |
 | RequestBuyer | [`0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46`](https://evm.now/address/0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46?chainId=1) | `0x95a86d96...` |
-| ReferralRewards | [`0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E`](https://evm.now/address/0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E?chainId=1) | not recorded |
-| RewardSplitter | [`0x4d7BE30350C94487c33b43c2462767679dcCC15d`](https://evm.now/address/0x4d7BE30350C94487c33b43c2462767679dcCC15d?chainId=1) | not recorded |
+| ReferralRewards | [`0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E`](https://evm.now/address/0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E?chainId=1) | `0xd596cbdf...` |
+| RewardSplitter | [`0x4d7BE30350C94487c33b43c2462767679dcCC15d`](https://evm.now/address/0x4d7BE30350C94487c33b43c2462767679dcCC15d?chainId=1) | `0xa98d118c...` |
 | FwaEngineV1 | [`0xAf1472D68f2F2Fd4efA591e97A1E3D621Ab69e53`](https://evm.now/address/0xAf1472D68f2F2Fd4efA591e97A1E3D621Ab69e53?chainId=1) | `0x47dc1db6...` |
 | FwaConversionFloor | [`0x550e8Aaed7C5571168751e5e62713B4Ded810eCa`](https://evm.now/address/0x550e8Aaed7C5571168751e5e62713B4Ded810eCa?chainId=1) | `0x55173405...` |
-| ChainlinkVrfAdapter | [`0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C`](https://evm.now/address/0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C?chainId=1) | not recorded |
-| MidwayBatchAccountFactory | [`0x510EA3199B5423871b93d4FA946fc69c88dC6001`](https://evm.now/address/0x510EA3199B5423871b93d4FA946fc69c88dC6001?chainId=1) | not recorded |
+| ChainlinkVrfAdapter | [`0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C`](https://evm.now/address/0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C?chainId=1) | `0x93fe52b2...` |
+| MidwayBatchAccountFactory | [`0x510EA3199B5423871b93d4FA946fc69c88dC6001`](https://evm.now/address/0x510EA3199B5423871b93d4FA946fc69c88dC6001?chainId=1) | `0x36c15cb8...` |
 
 <details>
 <summary>Full runtime code hashes</summary>
@@ -35,10 +35,16 @@
 | --- | --- |
 | RewardVault | `0x2529131631f1a1ecf096117aff9800acedbe5d031b8269194be476d3ccb1a35c` |
 | MidwayRegistry | `0x711d5445dde3521928b81743aad3b688dfa43eb3c0e1639de4a40fa873788f34` |
+| AssetPolicy | `0x525cecf1b4e8d7a7e0354ff15d9645c6c652d319f4a71e23a14aff3aa66c802c` |
 | MidwayBuyer | `0x7731df6279f0252b32fc9924c285337f785e1d70f77a81ec5adfae720d17aed7` |
+| SharedUpside | `0xfe5e760c247667ff4cd06cc2ea7e87f38c1db5e32e659008ecaa0a124848d93a` |
 | RequestBuyer | `0x95a86d96302e1329c617b99d2ae220032ac6afc89e48c4e749f2a5870d6ad2ca` |
+| ReferralRewards | `0xd596cbdff2d266a59fb5535b51758c5abdf69d7f1fdc8501dba1f85d1a831973` |
+| RewardSplitter | `0xa98d118cdbd7b20fd727a7f02d0aa8365a351c0c12cf4d45cce42f5fa1dbf210` |
 | FwaEngineV1 | `0x47dc1db6a220608d33c2825da6ee5327eacc4dc45240721b8ef2784b0010aedc` |
 | FwaConversionFloor | `0x5517340547d411f283884346cb20a0ca3b04cee72211b1e75fa973e08c57f4a4` |
+| ChainlinkVrfAdapter | `0x93fe52b22d081b0a59315d1c6131b6881ff6816c89c6382bf599a1164d3039f1` |
+| MidwayBatchAccountFactory | `0x36c15cb8b0cbfab9a2b2aeb853f55bd9d930d736214164691e4d33fdad8cee9d` |
 
 </details>
 
