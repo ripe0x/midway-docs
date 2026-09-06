@@ -4,7 +4,7 @@
 
 Pull-credit sink for referral ETH earned from terminal Midway fees.
 
-**Address**: [`0xb978e3fC88c09910851C616c17b0cb3cD4B16bBD`](https://evm.now/address/0xb978e3fC88c09910851C616c17b0cb3cD4B16bBD?chainId=1)
+**Address**: [`0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E`](https://evm.now/address/0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E?chainId=1)
 **Source**: `src/midway/ReferralRewards.sol`
 
 ## Functions

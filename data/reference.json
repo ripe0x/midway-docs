@@ -1,6 +1,6 @@
 {
-  "tag": "midway-v1-audit-rc11-22-gc41b00f2",
-  "commit": "c41b00f2",
+  "tag": "midway-v0.1",
+  "commit": "8b243b68",
   "contracts": [
     {
       "name": "MidwayBuyer",
@@ -3728,8 +3728,8 @@
           "notice": ""
         },
         {
-          "signature": "RewardSplit(uint256,uint256,uint256,uint256)",
-          "topic0": "0xb3674782a45fc78addebbf5c39e7a43802d1163c0b2b06dfd372d6ecb5f78840",
+          "signature": "RewardSplit(uint256,uint256,uint256,uint256,uint256)",
+          "topic0": "0x9dc19af6f51f4141f11183a3db630ba47911d654d96b44c55ebcd6cde1f7f8b2",
           "inputs": [
             {
               "name": "applicationId",
@@ -3748,6 +3748,11 @@
             },
             {
               "name": "sharedUpsideShare",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "treasuryShare",
               "type": "uint256",
               "indexed": false
             }
@@ -5156,20 +5161,39 @@
     {
       "name": "RewardSplitter",
       "source": "src/midway/RewardSplitter.sol",
-      "notice": "Splits purchaser rewards between the application and shared upside. Both shares stay in RewardVault custody as pot attributions: the recipient pulls its own pot whenever it chooses (`RewardVault.transfer`) or migrates it onward, so delivery imposes no requirement on the recipient beyond pot ownership.",
+      "notice": "Splits purchaser rewards three ways: treasury, shared upside, and the application. All shares stay in RewardVault custody as pot attributions: the recipient pulls its own pot whenever it chooses (`RewardVault.transfer`) or migrates it onward, so delivery imposes no requirement on the recipient beyond pot ownership.",
       "functions": [
         {
-          "signature": "setSkimBps(uint16)",
-          "selector": "0xc4f43778",
+          "signature": "setSplit(uint16,uint16)",
+          "selector": "0xf8b48019",
           "stateMutability": "nonpayable",
           "inputs": [
             {
-              "name": "newSkimBps",
+              "name": "treasuryBps_",
+              "type": "uint16"
+            },
+            {
+              "name": "skimBps_",
               "type": "uint16"
             }
           ],
           "outputs": [],
-          "notice": "Set the shared-upside skim. Registry operator only; bounded by `MAX_SKIM_BPS`.",
+          "notice": "Set the treasury and shared-upside shares together, so the pair stays consistent. Registry operator only; bounded by `MAX_TREASURY_BPS` and `MAX_SKIM_BPS`.",
+          "dev": "",
+          "params": {}
+        },
+        {
+          "signature": "setTreasury(address)",
+          "selector": "0xf0f44260",
+          "stateMutability": "nonpayable",
+          "inputs": [
+            {
+              "name": "newTreasury",
+              "type": "address"
+            }
+          ],
+          "outputs": [],
+          "notice": "Set the treasury pot address. Registry operator only; nonzero.",
           "dev": "",
           "params": {}
         },
@@ -5199,6 +5223,10 @@
             {
               "name": "sharedUpsideShare",
               "type": "uint256"
+            },
+            {
+              "name": "treasuryShare",
+              "type": "uint256"
             }
           ],
           "notice": "",
@@ -5216,7 +5244,22 @@
               "type": "uint16"
             }
           ],
-          "notice": "Ceiling on the shared-upside skim, a fat-finger guard on an economic lever.",
+          "notice": "Ceiling on the shared-upside share, a fat-finger guard on an economic lever.",
+          "dev": "",
+          "params": {}
+        },
+        {
+          "signature": "MAX_TREASURY_BPS()",
+          "selector": "0x10723c90",
+          "stateMutability": "view",
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint16"
+            }
+          ],
+          "notice": "Ceiling on the treasury share, a fat-finger guard on an economic lever.",
           "dev": "",
           "params": {}
         },
@@ -5291,7 +5334,7 @@
               "type": "uint16"
             }
           ],
-          "notice": "Shared-upside skim of gross rewards, in bps. Mutable by the registry operator (the Midway protocol authority); applies to `split` calls after the change, never retroactively. Defaults to 500 (5%).",
+          "notice": "Shared-upside share of gross rewards, in bps. Set at construction; mutable by the registry operator afterward via `setSplit`. Applies to `split` calls after the change, never retroactively.",
           "dev": "",
           "params": {}
         },
@@ -5329,29 +5372,62 @@
           "notice": "",
           "dev": "",
           "params": {}
+        },
+        {
+          "signature": "treasury()",
+          "selector": "0x61d027b3",
+          "stateMutability": "view",
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "notice": "Treasury pot address in RewardVault. Mutable by the registry operator; applies to `split` calls after the change. FWAT already attributed to the prior address stays in that pot; moving it onward is the prior treasury's own call.",
+          "dev": "",
+          "params": {}
+        },
+        {
+          "signature": "treasuryBps()",
+          "selector": "0x4dc10ea1",
+          "stateMutability": "view",
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint16"
+            }
+          ],
+          "notice": "Treasury share of gross rewards, in bps. Set at construction; mutable by the registry operator afterward via `setSplit`. Applies to `split` calls after the change, never retroactively.",
+          "dev": "",
+          "params": {}
+        },
+        {
+          "signature": "treasuryCarry(uint256)",
+          "selector": "0x81fb6762",
+          "stateMutability": "view",
+          "inputs": [
+            {
+              "name": "applicationId",
+              "type": "uint256"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "notice": "",
+          "dev": "",
+          "params": {}
         }
       ],
       "events": [
         {
-          "signature": "SkimBpsSet(uint16,uint16)",
-          "topic0": "0xabcb369f6cc9a4870e7257a91f93d6c210cc203430ca59e2739ff4e4be2a7d77",
-          "inputs": [
-            {
-              "name": "oldSkimBps",
-              "type": "uint16",
-              "indexed": false
-            },
-            {
-              "name": "newSkimBps",
-              "type": "uint16",
-              "indexed": false
-            }
-          ],
-          "notice": ""
-        },
-        {
-          "signature": "Split(uint256,uint256,uint256,uint256)",
-          "topic0": "0x493ae8affdadf8bca526bb93601a9be01655081df8a914b104edcfac7ca98f99",
+          "signature": "Split(uint256,uint256,uint256,uint256,uint256)",
+          "topic0": "0xd5a15689c53a32eca246cb4a702c43e49d1eaf97d016d93844e873e7ac388599",
           "inputs": [
             {
               "name": "applicationId",
@@ -5372,6 +5448,55 @@
               "name": "sharedUpsideShare",
               "type": "uint256",
               "indexed": false
+            },
+            {
+              "name": "treasuryShare",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "notice": ""
+        },
+        {
+          "signature": "SplitSet(uint16,uint16,uint16,uint16)",
+          "topic0": "0xbb18e21f28c080d333bb8ec58bd72a8096937ee0f515afed11a63f73e18031d6",
+          "inputs": [
+            {
+              "name": "oldTreasuryBps",
+              "type": "uint16",
+              "indexed": false
+            },
+            {
+              "name": "oldSkimBps",
+              "type": "uint16",
+              "indexed": false
+            },
+            {
+              "name": "newTreasuryBps",
+              "type": "uint16",
+              "indexed": false
+            },
+            {
+              "name": "newSkimBps",
+              "type": "uint16",
+              "indexed": false
+            }
+          ],
+          "notice": ""
+        },
+        {
+          "signature": "TreasurySet(address,address)",
+          "topic0": "0x21eb548722a564f6e09f039f7aa858ae94c911910f3823b37af2250eeca4f403",
+          "inputs": [
+            {
+              "name": "oldTreasury",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "name": "newTreasury",
+              "type": "address",
+              "indexed": false
             }
           ],
           "notice": ""
@@ -5385,8 +5510,8 @@
           "notice": ""
         },
         {
-          "signature": "InvalidSkim()",
-          "selector": "0x3551b94d",
+          "signature": "InvalidSplit()",
+          "selector": "0xbcd55b0f",
           "inputs": [],
           "notice": ""
         },

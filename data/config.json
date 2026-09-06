@@ -1,7 +1,7 @@
 {
-  "tag": "midway-v1-audit-rc11-25-g8020e0fd",
-  "commit": "8020e0fd",
-  "exportedAt": "2026-09-04T22:00:20.480Z",
+  "tag": "midway-v0.1",
+  "commit": "8b243b68",
+  "exportedAt": "2026-09-06T19:00:00.000Z",
   "entries": [
     {
       "key": "midwayFeeBps",
@@ -22,10 +22,16 @@
       "description": "Share of the Midway fee paid to the referrer, in basis points. Zero at launch."
     },
     {
+      "key": "rewardTreasuryBps",
+      "value": 1000,
+      "unit": "bps",
+      "description": "Share of purchaser rewards sent to the treasury pot, in basis points."
+    },
+    {
       "key": "rewardSkimBps",
       "value": 2500,
       "unit": "bps",
-      "description": "Share of purchaser rewards skimmed into the Shared Upside pot, in basis points."
+      "description": "Share of purchaser rewards sent to the Shared Upside pot, in basis points. The remainder after the treasury and Shared Upside shares goes to the application."
     },
     {
       "key": "genesisStart",

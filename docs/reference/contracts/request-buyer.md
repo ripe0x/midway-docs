@@ -4,7 +4,7 @@
 
 Single-use FWA purchaser for one Midway request.
 
-**Address**: [`0x94014A1CA361DD0c066325E26e77cE18D4Aa3Cc5`](https://evm.now/address/0x94014A1CA361DD0c066325E26e77cE18D4Aa3Cc5?chainId=1)
+**Address**: [`0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46`](https://evm.now/address/0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46?chainId=1)
 
 The listed address is the implementation cloned per request.
 **Source**: `src/midway/RequestBuyer.sol`

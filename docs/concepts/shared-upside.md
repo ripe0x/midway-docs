@@ -49,14 +49,16 @@ the week's weights expire.
 The weekly payout is 85% of drawable $FWA to one application, with 15% retained as the next seed.
 Odds are proportional to successful spend.
 
-FWA purchaser rewards are claimed from each request-specific account. `RewardSplitter` skims a share
-of gross FWAT rewards into Shared Upside. The launch skim is 2,500 basis points, so the application
-receives 75% and 25% joins Shared Upside. The registry operator can change the skim with
-`setSkimBps`, up to the hard cap `MAX_SKIM_BPS` of 3,000 basis points (30%). The rate is read live at
-harvest, so a change applies to any request not yet harvested, which is what lets the operator retune
-the split as the $FWA price moves. The application share always goes to the reward recipient saved
-when that request was created, even if the application changes its Registry recipient before
-harvesting.
+FWA purchaser rewards are claimed from each request-specific account. `RewardSplitter` splits gross
+FWAT rewards three ways at harvest: treasury, Shared Upside, and the application. The launch split is
+10% treasury, 25% Shared Upside, and the 65% remainder to the application. The registry operator can
+change the treasury and Shared Upside shares together with `setSplit(treasuryBps, skimBps)`, bounded
+independently by `MAX_TREASURY_BPS` (2,000 basis points, 20%) and `MAX_SKIM_BPS` (3,000 basis points,
+30%). The operator can also repoint the treasury pot address with `setTreasury`. Both bps values are
+read live at harvest, so a change applies to any request not yet harvested, which is what lets the
+operator retune the split as the $FWA price moves. The application share always goes to the reward
+recipient saved when that request was created, even if the application changes its Registry recipient
+before harvesting.
 
 Midway does not maintain a receiver allowlist or block an application's saved reward recipient.
 `RewardVault` must be added to the FWAToken distributor allowlist so it can pay those recipients. A

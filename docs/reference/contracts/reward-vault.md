@@ -4,7 +4,7 @@
 
 FWAT custody with measured ingress and address-owned pots.
 
-**Address**: [`0xD22C3e6422744fAF9A58841EB313835B4f37357E`](https://evm.now/address/0xD22C3e6422744fAF9A58841EB313835B4f37357E?chainId=1)
+**Address**: [`0xaA9178647be2C670E8998364caa44d3F4FE25D46`](https://evm.now/address/0xaA9178647be2C670E8998364caa44d3F4FE25D46?chainId=1)
 **Source**: `src/midway/RewardVault.sol`
 
 ## Functions

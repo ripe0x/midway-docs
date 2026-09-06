@@ -4,7 +4,7 @@
 
 Versioned ownerless factory for non-upgradeable per-application batch accounts.
 
-**Address**: [`0x5c7F2552F3868130D12c4c98B0ffF2705F27E482`](https://evm.now/address/0x5c7F2552F3868130D12c4c98B0ffF2705F27E482?chainId=1)
+**Address**: [`0x510EA3199B5423871b93d4FA946fc69c88dC6001`](https://evm.now/address/0x510EA3199B5423871b93d4FA946fc69c88dC6001?chainId=1)
 **Source**: `src/midway/MidwayBatchAccountFactory.sol`
 
 ## Functions

@@ -4,7 +4,7 @@
 
 Immutable Chainlink VRF v2.5 bridge for SharedUpside's cycle/attempt callback ABI.
 
-**Address**: [`0x22778A7268125c3cE00780B58Dc3A871d508b6C1`](https://evm.now/address/0x22778A7268125c3cE00780B58Dc3A871d508b6C1?chainId=1)
+**Address**: [`0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C`](https://evm.now/address/0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C?chainId=1)
 **Source**: `src/midway/ChainlinkVrfAdapter.sol`
 
 ## Functions

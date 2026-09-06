@@ -7,7 +7,8 @@
 | `midwayFeeBps` | `50` (0.50%) | bps | Midway fee on terminal fulfilled measured FWA spend, in basis points. Hard cap 300. |
 | `treasuryShareBps` | `10000` (100%) | bps | Share of the Midway fee sent to treasury, in basis points. 10000 sends the whole fee. |
 | `referralShareBps` | `0` (0%) | bps | Share of the Midway fee paid to the referrer, in basis points. Zero at launch. |
-| `rewardSkimBps` | `2500` (25%) | bps | Share of purchaser rewards skimmed into the Shared Upside pot, in basis points. |
+| `rewardTreasuryBps` | `1000` (10%) | bps | Share of purchaser rewards sent to the treasury pot, in basis points. |
+| `rewardSkimBps` | `2500` (25%) | bps | Share of purchaser rewards sent to the Shared Upside pot, in basis points. The remainder after the treasury and Shared Upside shares goes to the application. |
 | `genesisStart` | `1788825600` (2026-09-08T00:00:00Z) | unix timestamp | Unix timestamp when the first Shared Upside cycle begins. |
 | `cycleInterval` | `604800` (7 days) | seconds | Length of each Shared Upside cycle, in seconds. |
 | `minimumManagedFwaPayout` | `10000000000000000` (0.01 ETH) | wei | Minimum FWA payout, in wei, below which managed settlement falls back to ETH. |

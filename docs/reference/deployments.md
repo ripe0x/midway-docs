@@ -4,9 +4,9 @@
 
 ## Mainnet
 
-- **Release**: `midway-v1-audit-rc11`
-- **Deploy block**: 25906101
-- **Source**: tag `midway-v1-audit-rc11`, commit `735d3272b4d1e9de919898928065d0ca4a9681eb`
+- **Release**: `midway-v0.1`
+- **Deploy block**: 25920417
+- **Source**: tag `midway-v0.1`, commit `8b243b68`
 - **Deployer**: [`0xCB43078C32423F5348Cab5885911C3B5faE217F9`](https://evm.now/address/0xCB43078C32423F5348Cab5885911C3B5faE217F9?chainId=1)
 - **Owner**: [`0x105a823B6e7215dBC78083259A772A6C7BA2610E`](https://evm.now/address/0x105a823B6e7215dBC78083259A772A6C7BA2610E?chainId=1)
 - **Status**: Paused. Activation pending.
@@ -15,18 +15,18 @@
 
 | Contract | Address | Runtime code hash |
 | --- | --- | --- |
-| RewardVault | [`0xD22C3e6422744fAF9A58841EB313835B4f37357E`](https://evm.now/address/0xD22C3e6422744fAF9A58841EB313835B4f37357E?chainId=1) | `0x25291316...` |
-| MidwayRegistry | [`0xb5efc66Aa8dAF6482d24052b752d43F39574b395`](https://evm.now/address/0xb5efc66Aa8dAF6482d24052b752d43F39574b395?chainId=1) | `0x711d5445...` |
-| AssetPolicy | [`0x78D6943cD712b6c13D5E8b1233278e971F1DECdf`](https://evm.now/address/0x78D6943cD712b6c13D5E8b1233278e971F1DECdf?chainId=1) | `0x525cecf1...` |
-| MidwayBuyer | [`0x1fb010F5C4A569DBD1CB6bD14b189a53ADdD49A8`](https://evm.now/address/0x1fb010F5C4A569DBD1CB6bD14b189a53ADdD49A8?chainId=1) | `0xb518f348...` |
-| SharedUpside | [`0x115f38e0Db9C39e0eF601D9300A7207dD2a8A788`](https://evm.now/address/0x115f38e0Db9C39e0eF601D9300A7207dD2a8A788?chainId=1) | `0x218a8432...` |
-| RequestBuyer | [`0x94014A1CA361DD0c066325E26e77cE18D4Aa3Cc5`](https://evm.now/address/0x94014A1CA361DD0c066325E26e77cE18D4Aa3Cc5?chainId=1) | `0x95a86d96...` |
-| ReferralRewards | [`0xb978e3fC88c09910851C616c17b0cb3cD4B16bBD`](https://evm.now/address/0xb978e3fC88c09910851C616c17b0cb3cD4B16bBD?chainId=1) | `0xd596cbdf...` |
-| RewardSplitter | [`0xA3637B88246F535e241fd7BE257B1faCB2269CC5`](https://evm.now/address/0xA3637B88246F535e241fd7BE257B1faCB2269CC5?chainId=1) | `0xd87f167c...` |
-| FwaEngineV1 | [`0xF9aCC9C45b642C6febD87e1e1345E86461eCD4fa`](https://evm.now/address/0xF9aCC9C45b642C6febD87e1e1345E86461eCD4fa?chainId=1) | `0x985f7ccc...` |
-| FwaConversionFloor | [`0x53A4B5954a577a100780512885f78581D9F9F41C`](https://evm.now/address/0x53A4B5954a577a100780512885f78581D9F9F41C?chainId=1) | `0xad387a0f...` |
-| ChainlinkVrfAdapter | [`0x22778A7268125c3cE00780B58Dc3A871d508b6C1`](https://evm.now/address/0x22778A7268125c3cE00780B58Dc3A871d508b6C1?chainId=1) | `0x56764734...` |
-| MidwayBatchAccountFactory | [`0x5c7F2552F3868130D12c4c98B0ffF2705F27E482`](https://evm.now/address/0x5c7F2552F3868130D12c4c98B0ffF2705F27E482?chainId=1) | `0x521c85d0...` |
+| RewardVault | [`0xaA9178647be2C670E8998364caa44d3F4FE25D46`](https://evm.now/address/0xaA9178647be2C670E8998364caa44d3F4FE25D46?chainId=1) | `0x25291316...` |
+| MidwayRegistry | [`0x072faB53363817e7F1dDd1AD9EC38D07604a5e1b`](https://evm.now/address/0x072faB53363817e7F1dDd1AD9EC38D07604a5e1b?chainId=1) | `0x711d5445...` |
+| AssetPolicy | [`0xeDa2Feb255D3474564212F50B263c4C4a950C0b6`](https://evm.now/address/0xeDa2Feb255D3474564212F50B263c4C4a950C0b6?chainId=1) | not recorded |
+| MidwayBuyer | [`0x3DE80E9583a25e9E9B4b444a3392c00b911D7b7F`](https://evm.now/address/0x3DE80E9583a25e9E9B4b444a3392c00b911D7b7F?chainId=1) | `0x7731df62...` |
+| SharedUpside | [`0x5710A58688E452122a917f656F80Ca0AAD50bd06`](https://evm.now/address/0x5710A58688E452122a917f656F80Ca0AAD50bd06?chainId=1) | not recorded |
+| RequestBuyer | [`0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46`](https://evm.now/address/0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46?chainId=1) | `0x95a86d96...` |
+| ReferralRewards | [`0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E`](https://evm.now/address/0xA7Eb489f1Ad98Cd72C1d6afD3D725257021cC65E?chainId=1) | not recorded |
+| RewardSplitter | [`0x4d7BE30350C94487c33b43c2462767679dcCC15d`](https://evm.now/address/0x4d7BE30350C94487c33b43c2462767679dcCC15d?chainId=1) | not recorded |
+| FwaEngineV1 | [`0xAf1472D68f2F2Fd4efA591e97A1E3D621Ab69e53`](https://evm.now/address/0xAf1472D68f2F2Fd4efA591e97A1E3D621Ab69e53?chainId=1) | `0x47dc1db6...` |
+| FwaConversionFloor | [`0x550e8Aaed7C5571168751e5e62713B4Ded810eCa`](https://evm.now/address/0x550e8Aaed7C5571168751e5e62713B4Ded810eCa?chainId=1) | `0x55173405...` |
+| ChainlinkVrfAdapter | [`0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C`](https://evm.now/address/0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C?chainId=1) | not recorded |
+| MidwayBatchAccountFactory | [`0x510EA3199B5423871b93d4FA946fc69c88dC6001`](https://evm.now/address/0x510EA3199B5423871b93d4FA946fc69c88dC6001?chainId=1) | not recorded |
 
 <details>
 <summary>Full runtime code hashes</summary>
@@ -35,16 +35,10 @@
 | --- | --- |
 | RewardVault | `0x2529131631f1a1ecf096117aff9800acedbe5d031b8269194be476d3ccb1a35c` |
 | MidwayRegistry | `0x711d5445dde3521928b81743aad3b688dfa43eb3c0e1639de4a40fa873788f34` |
-| AssetPolicy | `0x525cecf1b4e8d7a7e0354ff15d9645c6c652d319f4a71e23a14aff3aa66c802c` |
-| MidwayBuyer | `0xb518f3484e259ec7938f9d266f1878fc2741b11118d06908dcde4add0568d6e0` |
-| SharedUpside | `0x218a84323a714a9d02fddc58b7a36a893522d0a3709d93bbeac16f6b7e2222e3` |
+| MidwayBuyer | `0x7731df6279f0252b32fc9924c285337f785e1d70f77a81ec5adfae720d17aed7` |
 | RequestBuyer | `0x95a86d96302e1329c617b99d2ae220032ac6afc89e48c4e749f2a5870d6ad2ca` |
-| ReferralRewards | `0xd596cbdff2d266a59fb5535b51758c5abdf69d7f1fdc8501dba1f85d1a831973` |
-| RewardSplitter | `0xd87f167ca98ae2d87b3a0d4049fcf371baa5153927bd5cc4ba79178576baf28c` |
-| FwaEngineV1 | `0x985f7ccc1b3a0114d215e2bd40219d9f47da9748c60a667ab228a8365a66af95` |
-| FwaConversionFloor | `0xad387a0fb02688d2d11c5895a09a04db028358527bbcef64a017f2c3971c9eab` |
-| ChainlinkVrfAdapter | `0x56764734bf645eb038105c458e620910151ded4a1fcbb2554571b4c268749c31` |
-| MidwayBatchAccountFactory | `0x521c85d0e2203e5e2b918c8e07fd304eb24439ed38233ea316425de987182730` |
+| FwaEngineV1 | `0x47dc1db6a220608d33c2825da6ee5327eacc4dc45240721b8ef2784b0010aedc` |
+| FwaConversionFloor | `0x5517340547d411f283884346cb20a0ca3b04cee72211b1e75fa973e08c57f4a4` |
 
 </details>
 

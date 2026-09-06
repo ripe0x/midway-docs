@@ -7,7 +7,7 @@ Midway launches without timelocks. Each authority is a multisig. Every lever bel
 | Authority | Controls | Transfer |
 |---|---|---|
 | Midway owner | MidwayBuyer, RewardVault, ReferralRewards, SharedUpside, ChainlinkVrfAdapter | two step per contract |
-| Registry operator | MidwayRegistry, RewardSplitter skim, FwaConversionFloor settings, the conversion floor pointer | two step |
+| Registry operator | MidwayRegistry, RewardSplitter split and treasury address, FwaConversionFloor settings, the conversion floor pointer | two step |
 | Asset policy operator | AssetPolicy | two step |
 | Application admin | one application's accounts and status inside MidwayRegistry | two step, per application |
 
@@ -20,7 +20,8 @@ Current addresses are on the [Deployments](../reference/deployments.md) page.
 | New acquisitions | `MidwayBuyer.setAcquisitionsPaused(bool)` | Midway owner | Blocks new requests. Every historical exit, refund, and settlement keeps working. |
 | Active engine | `MidwayBuyer.setActiveEngine(address)` | Midway owner | Future requests use the new engine. The displaced engine becomes exit only, permanently. |
 | Midway fee | `MidwayBuyer.setMidwayFeeConfig(cfg)` | Midway owner | Future acquisitions only. Hard cap 300 bps. Each request snapshots the fee config at acquisition. |
-| Reward skim | `RewardSplitter.setSkimBps(bps)` | Registry operator | Applies at the next harvest. Hard cap 3000 bps. No timelock. |
+| Reward split | `RewardSplitter.setSplit(treasuryBps, skimBps)` | Registry operator | Applies at the next harvest. Treasury share capped at 2000 bps, shared-upside share capped at 3000 bps. No timelock. |
+| Reward treasury address | `RewardSplitter.setTreasury(address)` | Registry operator | Applies at the next harvest. Nonzero. No timelock. |
 | FWAT conversion slippage cap | `FwaConversionFloor.setSlippageCapBps(bps)` | Registry operator | At most 1000. Zero disables the spot leg. No timelock. |
 | FWAT conversion observation window | `FwaConversionFloor.setObservationWindowBlocks(blocks)`, `setMinObservations(count)` | Registry operator | Window 8 to 7200 blocks. |
 | FWAT conversion absolute floor | `FwaConversionFloor.setFloorRate(rate)` | Registry operator | Zero (off) or at least 1e15 FWAT per ETH, 1e18 scaled. |

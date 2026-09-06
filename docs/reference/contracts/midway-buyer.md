@@ -4,7 +4,7 @@
 
 Stable application-facing contract that routes each request to its saved Engine.
 
-**Address**: [`0x1fb010F5C4A569DBD1CB6bD14b189a53ADdD49A8`](https://evm.now/address/0x1fb010F5C4A569DBD1CB6bD14b189a53ADdD49A8?chainId=1)
+**Address**: [`0x3DE80E9583a25e9E9B4b444a3392c00b911D7b7F`](https://evm.now/address/0x3DE80E9583a25e9E9B4b444a3392c00b911D7b7F?chainId=1)
 **Source**: `src/midway/MidwayBuyer.sol`
 
 ## Functions

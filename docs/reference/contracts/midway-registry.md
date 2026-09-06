@@ -4,7 +4,7 @@
 
 Registers applications and their authorized purchasing accounts.
 
-**Address**: [`0xb5efc66Aa8dAF6482d24052b752d43F39574b395`](https://evm.now/address/0xb5efc66Aa8dAF6482d24052b752d43F39574b395?chainId=1)
+**Address**: [`0x072faB53363817e7F1dDd1AD9EC38D07604a5e1b`](https://evm.now/address/0x072faB53363817e7F1dDd1AD9EC38D07604a5e1b?chainId=1)
 **Source**: `src/midway/MidwayRegistry.sol`
 
 ## Functions

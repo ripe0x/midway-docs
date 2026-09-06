@@ -4,7 +4,7 @@
 
 Live collection delivery policy used by immutable Engine versions.
 
-**Address**: [`0x78D6943cD712b6c13D5E8b1233278e971F1DECdf`](https://evm.now/address/0x78D6943cD712b6c13D5E8b1233278e971F1DECdf?chainId=1)
+**Address**: [`0xeDa2Feb255D3474564212F50B263c4C4a950C0b6`](https://evm.now/address/0xeDa2Feb255D3474564212F50B263c4C4a950C0b6?chainId=1)
 **Source**: `src/midway/AssetPolicy.sol`
 
 ## Functions

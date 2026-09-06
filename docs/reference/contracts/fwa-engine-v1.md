@@ -4,7 +4,7 @@
 
 Immutable integration for the deployed FWA v1 surface.
 
-**Address**: [`0xF9aCC9C45b642C6febD87e1e1345E86461eCD4fa`](https://evm.now/address/0xF9aCC9C45b642C6febD87e1e1345E86461eCD4fa?chainId=1)
+**Address**: [`0xAf1472D68f2F2Fd4efA591e97A1E3D621Ab69e53`](https://evm.now/address/0xAf1472D68f2F2Fd4efA591e97A1E3D621Ab69e53?chainId=1)
 **Source**: `src/midway/FwaEngineV1.sol`
 
 ## Functions
@@ -96,7 +96,7 @@ Immutable integration for the deployed FWA v1 surface.
 | `RefundWithdrawn(uint256,address,uint256)`<br><details><summary>`0x6909eb93...`</summary>`0x6909eb935886ad8c734c29844350c36b0260f7006ff58559a3c286a9e7c8d878`</details> |  |
 | `RequestEthSwept(uint256,address,uint256)`<br><details><summary>`0x433ee97d...`</summary>`0x433ee97d9c77cd6abe5ced7158bae18c8008a9a3b1322e2763111be9810384a3`</details> |  |
 | `RequestSynchronized(uint256,uint8,uint256)`<br><details><summary>`0xc12942a3...`</summary>`0xc12942a38de731e1875fef5d958024e0ab81091a9ae2866a97ce2e2a35909737`</details> |  |
-| `RewardSplit(uint256,uint256,uint256,uint256)`<br><details><summary>`0xb3674782...`</summary>`0xb3674782a45fc78addebbf5c39e7a43802d1163c0b2b06dfd372d6ecb5f78840`</details> |  |
+| `RewardSplit(uint256,uint256,uint256,uint256,uint256)`<br><details><summary>`0x9dc19af6...`</summary>`0x9dc19af6f51f4141f11183a3db630ba47911d654d96b44c55ebcd6cde1f7f8b2`</details> |  |
 
 ## Errors
 
