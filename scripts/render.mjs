@@ -184,6 +184,10 @@ function renderMainnetSection() {
   }
   if (mainnet.status === "paused") {
     lines.push(`- **Status**: Paused. Activation pending.`);
+  } else if (mainnet.status === "active") {
+    lines.push(
+      `- **Status**: Deployed and unpaused since block ${mainnet.unpausedBlock}. Curated access; the operator allowlists applications. FWAT reward legs pending the distributor grant.`
+    );
   }
   lines.push("");
   lines.push("### Contracts");

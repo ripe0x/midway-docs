@@ -9,7 +9,7 @@
 - **Source**: tag `midway-v0.1`, commit `8b243b68`
 - **Deployer**: [`0xCB43078C32423F5348Cab5885911C3B5faE217F9`](https://evm.now/address/0xCB43078C32423F5348Cab5885911C3B5faE217F9?chainId=1)
 - **Owner**: [`0x105a823B6e7215dBC78083259A772A6C7BA2610E`](https://evm.now/address/0x105a823B6e7215dBC78083259A772A6C7BA2610E?chainId=1)
-- **Status**: Paused. Activation pending.
+- **Status**: Deployed and unpaused since block 25926395. Curated access; the operator allowlists applications. FWAT reward legs pending the distributor grant.
 
 ### Contracts
 

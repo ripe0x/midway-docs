@@ -12,8 +12,9 @@ your application rebuilding FWA's deadlines, refunds, or reward claims, and Shar
 recurring cross-application $FWA award funded by part of FWA purchaser rewards.
 
 {% hint style="warning" %}
-Midway is deployed on Ethereum mainnet, release midway-v0.1. It is currently paused. Activation is
-pending.
+Midway is deployed on Ethereum mainnet, release midway-v0.1, and unpaused since block 25926395.
+Access is curated: the operator allowlists applications. FWAT reward legs are pending the
+distributor grant.
 {% endhint %}
 
 Start with the [Quickstart](quickstart/README.md) to register an application and make your first

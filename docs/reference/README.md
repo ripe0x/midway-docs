@@ -74,5 +74,6 @@ Midway still requires:
 - a limited-value canary launch; and
 - a public deployment manifest and current-configuration page.
 
-Midway is deployed on Ethereum mainnet and currently paused. These gates track readiness for
-activation, not whether a live deployment exists.
+Midway is deployed on Ethereum mainnet and unpaused since block 25926395, under curated access: the
+operator allowlists applications. FWAT reward legs are pending the distributor grant. These gates
+track readiness for full activation, not whether a live deployment exists.

@@ -50,7 +50,8 @@ const generatedRefPages = new Set([
 ]);
 const contractsDir = path.join(docsDir, "reference", "contracts");
 
-const addressRe = /0x[0-9a-fA-F]{40}/g;
+// exactly 40 hex chars (an address), not a prefix of a longer hash (tx hash, code hash: 64 hex)
+const addressRe = /0x[0-9a-fA-F]{40}(?![0-9a-fA-F])/g;
 const emDash = "—";
 const enDash = "–";
 const bannedStrings = ["fwa-roll", "/Users/", "keystore", "PRIVATE_KEY"];
