@@ -2,42 +2,35 @@
 
 ## Settlement objective
 
-There is no intentional monitoring delay. Midway should synchronize and settle immediately after FWA
-fulfillment, normally within minutes.
+There is no intentional delay. Midway's keeper synchronizes and settles a fulfilled request
+immediately, normally within minutes. An application does not need to write or run a keeper: every
+lifecycle action is permissionless, and `nextAction` is the single authority for what happens next,
+so a keeper (Midway's or anyone else's) reads it and holds no separate copy of the state machine.
 
-Production operation requires:
-
-- redundant event-driven keepers;
-- direct state polling so missed events do not become missed settlements;
-- multiple RPC providers;
-- permissionless fallback callers;
-- deadline warnings and pages calculated from live FWA configuration;
-- monitoring of old exit-only Engines as well as the current Engine; and
-- a published keeper service level and alert schedule before launch.
-
-New acquisitions may be paused while processing, Managed settlement and ETH fallback, refunds,
-forced recovery, reward harvesting, activity retry, cycle checkpointing, randomness retry, and award
-claims remain available.
+New acquisitions may be paused while `autoResolve`, `settleForEth`, refunds, forced-outcome recovery,
+reward claims, and payouts remain available.
 
 ## Permissionless lifecycle actions
 
-An application admin manages the application's record, accounts, and recipients in `MidwayRegistry`.
-Every action below is available to any caller, not only the admin:
+An application admin manages the application's record, accounts, and recipients in
+`MidwayRegistry`. Every action below is available to any caller, not only the admin or the account:
 
 | Action | Who may call it? | Purpose |
 |---|---|---|
-| `processAcquisitions(maxCount)` | Anyone | Process a bounded number of FWA requests |
-| `syncRequest(midwayRequestId)` | Anyone | Copy FWA state and finalize Midway accounting |
-| `autoResolve(midwayRequestId)` | Anyone | Execute the saved ETH or $FWA-first Managed policy |
-| `acceptBidAsTokens(id, minOut)` | Recorded account | Accept the live FWA bid as measured $FWA credited to its vault pot |
-| `withdrawRefunds(ids)` | Anyone | Send exact refunds to their recorded accounts |
-| `recoverForcedOutcome(id)` | Anyone | Classify and recover a forced FWA outcome |
-| `recoverStuckNFT(id)` | Anyone | Retry a recorded FWA stuck-NFT delivery |
-| `retrySharedUpsideActivity(id)` | Anyone | Retry Shared Upside recording after a temporary failure |
-| `claimEpochRewards` | Request account | Claim closed-epoch FWA purchaser rewards to their saved route |
-| `claimAccruedRewards` | Recorded account | Convert accrued purchaser rewards using the account's `minOut` |
-| `optIntoManaged(id)` | Recorded account | Permanently change a Manual request to Managed |
-| `keepNFTTo(id, recipient)` | Recorded account | Request supported NFT delivery |
+| `syncRequest(ids)` | Anyone | Reads FWA state and advances Midway state |
+| `autoResolve(ids)` | Anyone | Drives each request to its terminal outcome; reads no price |
+| `settleForEth(ids)` | Anyone | Accepts FWA's depositor bid and pays the recorded account |
+| `withdrawRefunds(ids)` | Anyone | Sends each finalized request's fee-reserve refund to its account |
+| `claimEpochRewards(ids, epochs)` | Anyone | Claims closed-epoch $FWA purchaser rewards into the application pot |
+| `claimAccruedRewards(ids, minOut)` | Anyone | Claims accrued $FWA rewards under a spot-derived bound |
+| `payoutRewards(applicationIds, kind)` | Anyone | Pays each application's pot to its registry-named recipient |
+| `recoverForcedOutcome(ids)` | Anyone | Classifies and records a forced FWA outcome |
+| `recoverStuckNFT(ids)` | Anyone | Recovers an NFT stuck on a request's clone |
+| `retrySharedUpsideActivity(ids)` | Anyone | Retries a pending Shared Upside activity record |
+| `settleForFwat(id, minOut)` | Account or account operator | Settles for $FWA under the caller's own slippage bound |
+| `deliverNFT(id, to)` | Account or account operator | Delivers the request's NFT to the named address |
+| `makeManaged(id)` | Account or account operator | Sets `autoSettleEth` to true; one way |
 
-"Anyone may call" never means "anyone may choose the recipient." Request ownership and payouts were
-fixed at acquisition.
+"Anyone may call" never means "anyone may choose the recipient." ETH settlement and refunds pay the
+account snapshotted at acquisition. $FWA payout resolves its recipient from registry state at call
+time. No permissionless caller can redirect either one.

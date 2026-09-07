@@ -4,14 +4,41 @@
 
 ## Mainnet
 
-- **Release**: `midway-v0.1`
-- **Deploy block**: 25920417
-- **Source**: tag `midway-v0.1`, commit `8b243b68`
-- **Deployer**: [`0xCB43078C32423F5348Cab5885911C3B5faE217F9`](https://evm.now/address/0xCB43078C32423F5348Cab5885911C3B5faE217F9?chainId=1)
-- **Owner**: [`0x105a823B6e7215dBC78083259A772A6C7BA2610E`](https://evm.now/address/0x105a823B6e7215dBC78083259A772A6C7BA2610E?chainId=1)
-- **Status**: Deployed and unpaused since block 25926395. Curated access; the operator allowlists applications. FWAT reward legs pending the distributor grant.
+- **Release**: `midway-v1`
+- **Status**: Not yet deployed. `midway-v1` is pending deployment.
 
 ### Contracts
+
+No `midway-v1` contract is deployed on this network yet.
+
+### External contracts
+
+| Name | Address |
+| --- | --- |
+| FWA | [`0xB276F62DB0ce8CA2Ca5bc522695bE604521eAc1c`](https://evm.now/address/0xB276F62DB0ce8CA2Ca5bc522695bE604521eAc1c?chainId=1) |
+| FWAToken | [`0xa0Df17B5aC76ABaBA36E1450E2cbCd18A620C845`](https://evm.now/address/0xa0Df17B5aC76ABaBA36E1450E2cbCd18A620C845?chainId=1) |
+| FWARewards | [`0x6a1a1C0CfB3D3C538e13D36d608a5bcaa992fc78`](https://evm.now/address/0x6a1a1C0CfB3D3C538e13D36d608a5bcaa992fc78?chainId=1) |
+| Treasury | [`0xea194A186EBe76A84E2B2027f5f23F81939c05AD`](https://evm.now/address/0xea194A186EBe76A84E2B2027f5f23F81939c05AD?chainId=1) |
+| Chainlink VRF coordinator | [`0xD7f86b4b8Cae7D942340FF628F82735b7a20893a`](https://evm.now/address/0xD7f86b4b8Cae7D942340FF628F82735b7a20893a?chainId=1) |
+| Locked FWA Token Packs | [`0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7`](https://evm.now/address/0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7?chainId=1) |
+| FWA Token Packs | [`0x727C739F07A89f11E883FE0F34937c55e4c3d74A`](https://evm.now/address/0x727C739F07A89f11E883FE0F34937c55e4c3d74A?chainId=1) |
+
+### ETH only collections
+
+Manual NFT delivery is denied for these collections. Managed ETH and $FWA settlement are unaffected.
+
+| Name | Address |
+| --- | --- |
+| Locked FWA Token Packs | [`0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7`](https://evm.now/address/0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7?chainId=1) |
+| FWA Token Packs | [`0x727C739F07A89f11E883FE0F34937c55e4c3d74A`](https://evm.now/address/0x727C739F07A89f11E883FE0F34937c55e4c3d74A?chainId=1) |
+
+### Retired: `midway-v0.1`
+
+- **Source**: tag `midway-v0.1`, commit `8b243b68`
+- **Deploy block**: 25920417
+- **Deployer**: [`0xCB43078C32423F5348Cab5885911C3B5faE217F9`](https://evm.now/address/0xCB43078C32423F5348Cab5885911C3B5faE217F9?chainId=1)
+- **Owner**: [`0x105a823B6e7215dBC78083259A772A6C7BA2610E`](https://evm.now/address/0x105a823B6e7215dBC78083259A772A6C7BA2610E?chainId=1)
+- **Reason retired**: superseded by v1 rework before third-party use
 
 | Contract | Address | Runtime code hash |
 | --- | --- | --- |
@@ -48,39 +75,25 @@
 
 </details>
 
-### External contracts
-
-| Name | Address |
-| --- | --- |
-| FWA | [`0xB276F62DB0ce8CA2Ca5bc522695bE604521eAc1c`](https://evm.now/address/0xB276F62DB0ce8CA2Ca5bc522695bE604521eAc1c?chainId=1) |
-| FWAToken | [`0xa0Df17B5aC76ABaBA36E1450E2cbCd18A620C845`](https://evm.now/address/0xa0Df17B5aC76ABaBA36E1450E2cbCd18A620C845?chainId=1) |
-| FWARewards | [`0x6a1a1C0CfB3D3C538e13D36d608a5bcaa992fc78`](https://evm.now/address/0x6a1a1C0CfB3D3C538e13D36d608a5bcaa992fc78?chainId=1) |
-| Treasury | [`0xea194A186EBe76A84E2B2027f5f23F81939c05AD`](https://evm.now/address/0xea194A186EBe76A84E2B2027f5f23F81939c05AD?chainId=1) |
-| Chainlink VRF coordinator | [`0xD7f86b4b8Cae7D942340FF628F82735b7a20893a`](https://evm.now/address/0xD7f86b4b8Cae7D942340FF628F82735b7a20893a?chainId=1) |
-| Locked FWA Token Packs | [`0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7`](https://evm.now/address/0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7?chainId=1) |
-| FWA Token Packs | [`0x727C739F07A89f11E883FE0F34937c55e4c3d74A`](https://evm.now/address/0x727C739F07A89f11E883FE0F34937c55e4c3d74A?chainId=1) |
-
-### ETH only collections
-
-Manual NFT delivery is denied for these collections. Managed ETH and $FWA settlement are unaffected.
-
-| Name | Address |
-| --- | --- |
-| Locked FWA Token Packs | [`0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7`](https://evm.now/address/0x470879Abd61FdCA91436fE27ed87dB2c8650f3e7?chainId=1) |
-| FWA Token Packs | [`0x727C739F07A89f11E883FE0F34937c55e4c3d74A`](https://evm.now/address/0x727C739F07A89f11E883FE0F34937c55e4c3d74A?chainId=1) |
-
 ## Sepolia
 
 {% hint style="warning" %}
 Testnet addresses. Never use a Sepolia address on mainnet.
 {% endhint %}
 
-- **Release**: `9ccbfb18`
-- **Deploy block**: 11581653
-- **Source**: commit `9ccbfb18`
-- **Note**: graph 4, frozen-tag deploy 2026-08-28 01:35Z for the final rehearsal
+- **Release**: `midway-v1`
+- **Status**: Not yet deployed. `midway-v1` is pending deployment.
 
 ### Contracts
+
+No `midway-v1` contract is deployed on this network yet.
+
+### Retired: `9ccbfb18`
+
+- **Source**: commit `9ccbfb18`
+- **Deploy block**: 11581653
+- **Note**: graph 4, frozen-tag deploy 2026-08-28 01:35Z for the final rehearsal
+- **Reason retired**: v0.1 rehearsal graph, superseded by the v1 rework before third-party use
 
 | Contract | Address | Runtime code hash |
 | --- | --- | --- |

@@ -8,26 +8,28 @@ Midway v1 excludes:
 - third-party paid NFT delivery or paid incident sales;
 - weekly sponsorship;
 - reward callbacks;
-- referral trees or user-level referral attribution;
+- referral trees or user-level referral attribution (the referrer field is recorded, not paid);
 - lending, credit, leverage, or a governance token;
-- arbitrary plugins, arbitrary external calls, or delegatecall modules;
-- a complete `IFWA` storage or getter replacement; and
-- migration of historical launch-candidate `MidwayBuyer` requests into Midway request records.
+- arbitrary plugins, arbitrary external calls, or delegatecall modules; and
+- a complete `IFWA` storage or getter replacement.
 
 ## Request guarantees
 
 For every accepted request:
 
-- application ID, application account, Engine, `RequestBuyer`, upstream FWA request, mode, award
-  recipient, referrer, fee rate, fee split, and fee recipients are immutable;
-- Refunded and Expired requests pay no Midway fee and create no Shared Upside weight;
-- Fulfilled requests use the same measured FWA debit as fee base and weight base;
-- settlement and refunds pay the recorded account, never the transaction caller;
-- an acquisition pause does not pause any historical exit;
-- a new active Engine changes only future requests;
-- existing requests never acquire new behavior retroactively;
-- Asset Policy failure may deny NFT delivery but not ETH or refunds; and
-- optional reward, referral, reserve, or Shared Upside work cannot redirect ETH or refunds.
+- the account, applicationId, engine, `RequestBuyer` clone, referrer, fee rate, fee recipient, and
+  `autoSettleEth` are frozen at acquisition and never change;
+- ETH settlement and refunds pay the recorded account, never the transaction caller;
+- $FWA payout resolves its recipient from registry state at payout time, never from a caller
+  argument;
+- an acquisitions pause blocks new requests only; every historical exit, refund, and settlement
+  keeps working;
+- a new active engine changes only future requests; the displaced engine stays exit only,
+  permanently;
+- Shared Upside activity recording is an outbox with a permissionless retry, and its failure never
+  blocks a settlement or a refund; and
+- no permissionless call reads a pool price except the accrued-reward claim, whose bound is a
+  constant applied to spot inside the engine.
 
 ## Honest limitation
 

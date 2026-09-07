@@ -4,17 +4,15 @@
 NFT-backed position. The result arrives later: a request can fulfill, expire, or refund, and a
 fulfilled purchaser may receive ETH, $FWA, or an NFT.
 
-Midway is the application layer for FWA. An application buys through one stable `MidwayBuyer`
-address. Midway isolates each request, operates the FWA lifecycle, normally turns fulfilled
-positions into ETH, and pays the result to the application account recorded when the request began.
-Midway provides two products: Managed Settlement, which returns the resolved economic result without
-your application rebuilding FWA's deadlines, refunds, or reward claims, and Shared Upside, a
-recurring cross-application $FWA award funded by part of FWA purchaser rewards.
+Midway is the application layer for FWA. An application registers once, funds one acquisition per
+request through the `MidwayBuyer`, and receives the result at the account it named. Midway owns
+everything between those two facts: it drives the FWA lifecycle, settles for ETH with no price
+input, and delivers $FWA or an NFT on the account's own terms.
 
 {% hint style="warning" %}
-Midway is deployed on Ethereum mainnet, release midway-v0.1, and unpaused since block 25926395.
-Access is curated: the operator allowlists applications. FWAT reward legs are pending the
-distributor grant.
+Midway v1 is not yet deployed on Ethereum mainnet. The v1 graph replaces `midway-v0.1`, which is
+retired. See [Deployments](reference/deployments.md) for current status and no addresses until
+launch.
 {% endhint %}
 
 Start with the [Quickstart](quickstart/README.md) to register an application and make your first

@@ -1,18 +1,12 @@
 # Examples
 
-## Application account
+## Account contract
 
-`ExampleMidwayExecutionAccount.sol` demonstrates how to:
-
-- accept an application invitation;
-- quote immediately before acquiring;
-- apply explicit fee and FWA pool-value safety limits;
-- save Midway request IDs;
-- return excess caller payment;
-- receive normal or force-safe ETH;
-- acquire in Manual mode when the owner wants a settlement choice;
-- accept the live bid as measured $FWA and receive a `RewardVault` credit; and
-- let the owner withdraw accounted ETH or credited $FWA.
+`ExampleMidwayExecutionAccount.sol` is reduced to what an account operator cannot cover: accepting
+the application invitation, calling `acquire`, naming an operator, and receiving pushed ETH.
+Everything else an operator can drive directly against `MidwayBuyer` and `RewardVault`:
+`settleForFwat`, `deliverNFT`, `makeManaged`, and `RewardVault.payout` all accept a call from the
+account's operator with no forwarder on this contract.
 
 It is not a substitute for designing and auditing your own deposit and user-accounting rules.
 
@@ -20,69 +14,47 @@ It is not a substitute for designing and auditing your own deposit and user-acco
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-enum MidwayResolutionMode {
-    Managed,
-    Manual
-}
-
 interface IMidwayRegistryExample {
     function acceptApplication(uint256 applicationId) external;
+    function setAccountOperator(address account, address operator) external;
+}
+
+struct AcquisitionQuoteExample {
+    uint256 fwaFee;
+    uint256 vrfFee;
+    uint256 midwayFee;
+    uint256 totalRequired;
 }
 
 interface IMidwayBuyerExample {
-    function quoteAcquisitionPrice() external view returns (uint256 fee, uint256 vrfFee, uint256 totalRequired);
-
-    function acquire(uint256 maxAcquisitionFee, uint256 minWeightedValue)
-        external
-        payable
-        returns (uint256 midwayRequestId);
-
-    function acquireWithMode(uint256 maxAcquisitionFee, uint256 minWeightedValue, MidwayResolutionMode mode)
-        external
-        payable
-        returns (uint256 midwayRequestId);
-
-    function acceptBidAsTokens(uint256 midwayRequestId, uint256 minOut) external returns (uint256 amount);
+    function quoteAcquisition() external view returns (AcquisitionQuoteExample memory);
+    function acquire() external payable returns (uint256 midwayRequestId);
+    function acquire(bool autoSettleEth) external payable returns (uint256 midwayRequestId);
 }
 
-interface IRewardVaultExample {
-    function potOf(address owner) external view returns (uint256);
-    function transfer(address recipient, uint256 amount) external;
-}
-
-/// @notice Small educational example of an application-owned Midway execution account.
+/// @notice Minimal Midway account contract, reduced to what an account operator cannot cover:
+///         accepting the application invitation, calling `acquire`, naming an operator, and
+///         receiving pushed ETH. Everything else (`settleForFwat`, `deliverNFT`, `makeManaged`,
+///         `RewardVault.payout`) an operator can drive directly against `MidwayBuyer` and
+///         `RewardVault` without going through this contract at all.
 /// @dev Applications still need their own deposit, user-accounting, and access-control design.
 contract ExampleMidwayExecutionAccount {
     IMidwayRegistryExample public immutable registry;
     IMidwayBuyerExample public immutable midwayBuyer;
-    IRewardVaultExample public immutable rewardVault;
     address public immutable owner;
-
-    uint256 public applicationId;
-    mapping(uint256 midwayRequestId => bool createdByThisAccount) public requestCreated;
 
     error Unauthorized();
     error ZeroAddress();
-    error AlreadyRegistered();
-    error UnknownRequest();
-    error InsufficientPayment();
-    error EthTransferFailed();
 
     event ApplicationAccepted(uint256 indexed applicationId);
-    event ManagedRequestCreated(uint256 indexed midwayRequestId, uint256 amountSentToBuyer);
-    event ManualRequestCreated(uint256 indexed midwayRequestId, uint256 amountSentToBuyer);
-    event FwaSettlementCredited(uint256 indexed midwayRequestId, uint256 amount);
-    event EthWithdrawn(address indexed recipient, uint256 amount);
-    event FwaWithdrawn(address indexed recipient, uint256 amount);
+    event RequestCreated(uint256 indexed midwayRequestId, uint256 amountSent);
 
-    constructor(address registry_, address midwayBuyer_, address rewardVault_, address owner_) {
-        if (registry_ == address(0) || midwayBuyer_ == address(0) || rewardVault_ == address(0) || owner_ == address(0))
-        {
+    constructor(address registry_, address midwayBuyer_, address owner_) {
+        if (registry_ == address(0) || midwayBuyer_ == address(0) || owner_ == address(0)) {
             revert ZeroAddress();
         }
         registry = IMidwayRegistryExample(registry_);
         midwayBuyer = IMidwayBuyerExample(midwayBuyer_);
-        rewardVault = IRewardVaultExample(rewardVault_);
         owner = owner_;
     }
 
@@ -91,133 +63,36 @@ contract ExampleMidwayExecutionAccount {
         _;
     }
 
-    /// @notice Accepts an invitation previously created by the application admin.
-    function acceptMidwayApplication(uint256 applicationId_) external onlyOwner {
-        if (applicationId != 0) revert AlreadyRegistered();
-        registry.acceptApplication(applicationId_);
-        applicationId = applicationId_;
-        emit ApplicationAccepted(applicationId_);
+    /// @notice Accepts an invitation previously created by the application admin. Not needed when
+    ///         this contract was passed directly as the account to `registerApplication`.
+    function acceptMidwayApplication(uint256 applicationId) external onlyOwner {
+        registry.acceptApplication(applicationId);
+        emit ApplicationAccepted(applicationId);
     }
 
-    /// @notice Quotes immediately before acquiring, while the owner supplies explicit safety limits.
-    function acquireManaged(uint256 maxAcquisitionFee, uint256 minWeightedValue)
-        external
-        payable
-        onlyOwner
-        returns (uint256 midwayRequestId)
-    {
-        (,, uint256 required) = midwayBuyer.quoteAcquisitionPrice();
-        if (msg.value < required) revert InsufficientPayment();
-
-        uint256 startingBalance = address(this).balance - msg.value;
-        midwayRequestId = midwayBuyer.acquire{value: msg.value}(maxAcquisitionFee, minWeightedValue);
-        requestCreated[midwayRequestId] = true;
-        emit ManagedRequestCreated(midwayRequestId, msg.value);
-
-        uint256 returnedDuringAcquisition = address(this).balance - startingBalance;
-        if (returnedDuringAcquisition != 0) _sendEth(payable(msg.sender), returnedDuringAcquisition);
+    /// @notice Names the address allowed to call the account-only Midway verbs on this account's
+    ///         behalf. Account-only: an operator cannot grant itself this power.
+    function setOperator(address operator) external onlyOwner {
+        registry.setAccountOperator(address(this), operator);
     }
 
-    /// @notice Uses Manual mode so a permissionless keeper cannot settle in ETH before this account
-    /// chooses between $FWA and a supported NFT.
-    function acquireManual(uint256 maxAcquisitionFee, uint256 minWeightedValue)
-        external
-        payable
-        onlyOwner
-        returns (uint256 midwayRequestId)
-    {
-        (,, uint256 required) = midwayBuyer.quoteAcquisitionPrice();
-        if (msg.value < required) revert InsufficientPayment();
-
-        uint256 startingBalance = address(this).balance - msg.value;
-        midwayRequestId = midwayBuyer.acquireWithMode{value: msg.value}(
-            maxAcquisitionFee, minWeightedValue, MidwayResolutionMode.Manual
-        );
-        requestCreated[midwayRequestId] = true;
-        emit ManualRequestCreated(midwayRequestId, msg.value);
-
-        uint256 returnedDuringAcquisition = address(this).balance - startingBalance;
-        if (returnedDuringAcquisition != 0) _sendEth(payable(msg.sender), returnedDuringAcquisition);
+    /// @notice Quotes and acquires in one call, padding the quote and using the application's saved
+    ///         settlement default. Excess ETH refunds to this contract inside `acquire` itself.
+    function acquire() external payable onlyOwner returns (uint256 midwayRequestId) {
+        AcquisitionQuoteExample memory q = midwayBuyer.quoteAcquisition();
+        uint256 padded = q.totalRequired * 105 / 100;
+        midwayRequestId = midwayBuyer.acquire{value: padded}();
+        emit RequestCreated(midwayRequestId, padded);
     }
 
-    /// @notice Accepts the request's live FWA bid as at least `minOut` $FWA. Midway credits the
-    /// measured output to this contract's RewardVault pot.
-    function settleAsFwa(uint256 midwayRequestId, uint256 minOut) external onlyOwner returns (uint256 amount) {
-        if (!requestCreated[midwayRequestId]) revert UnknownRequest();
-        amount = midwayBuyer.acceptBidAsTokens(midwayRequestId, minOut);
-        emit FwaSettlementCredited(midwayRequestId, amount);
-    }
-
-    /// @notice Withdraws $FWA already credited to this contract's RewardVault pot.
-    function withdrawFwa(address recipient, uint256 amount) external onlyOwner {
-        if (recipient == address(0)) revert ZeroAddress();
-        rewardVault.transfer(recipient, amount);
-        emit FwaWithdrawn(recipient, amount);
-    }
-
-    /// @notice Withdraws settlement ETH, refunds, or other ETH owned by the application account.
+    /// @notice Withdraws ETH this account received from settlement, a refund, or a fee-reserve
+    ///         refund.
     function withdrawEth(address payable recipient, uint256 amount) external onlyOwner {
         if (recipient == address(0)) revert ZeroAddress();
-        _sendEth(recipient, amount);
-        emit EthWithdrawn(recipient, amount);
-    }
-
-    function _sendEth(address payable recipient, uint256 amount) private {
         (bool ok,) = recipient.call{value: amount}("");
-        if (!ok) revert EthTransferFailed();
+        require(ok, "eth transfer failed");
     }
 
     receive() external payable {}
-}
-```
-
-## Award recipient
-
-`ExampleMidwayAwardRecipient.sol` controls an attributed `RewardVault` balance and demonstrates a
-simple treasury use. Real applications should publicly explain whether awards go to users, a pool, a
-treasury, or another application-specific mechanism.
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.28;
-
-interface IMidwayRewardVaultExample {
-    function transfer(address recipient, uint256 amount) external;
-}
-
-/// @notice Small educational award-pot controller for a Shared Upside application.
-contract ExampleMidwayAwardRecipient {
-    bytes32 public constant AWARD_RECEIVER_ID = keccak256("MIDWAY_AWARD_RECEIVER_V1");
-
-    IMidwayRewardVaultExample public immutable rewardVault;
-    address public immutable owner;
-
-    error Unauthorized();
-    error ZeroAddress();
-
-    event AwardTokensSent(address indexed recipient, uint256 amount);
-
-    constructor(address rewardVault_, address owner_) {
-        if (rewardVault_ == address(0) || owner_ == address(0)) revert ZeroAddress();
-        rewardVault = IMidwayRewardVaultExample(rewardVault_);
-        owner = owner_;
-    }
-
-    function awardReceiverId() external pure returns (bytes32) {
-        return AWARD_RECEIVER_ID;
-    }
-
-    /// @notice The receiver controls the RewardVault balance attributed to this contract.
-    function awardPot() external view returns (address) {
-        return address(this);
-    }
-
-    /// @notice Example treasury use. A real application may distribute awards with different rules.
-    function sendAwardTokens(address recipient, uint256 amount) external {
-        if (msg.sender != owner) revert Unauthorized();
-        if (recipient == address(0)) revert ZeroAddress();
-        rewardVault.transfer(recipient, amount);
-        emit AwardTokensSent(recipient, amount);
-    }
 }
 ```

@@ -1,25 +1,13 @@
 {
-  "tag": "midway-v0.1",
-  "commit": "8b243b68",
-  "exportedAt": "2026-09-06T19:00:00.000Z",
+  "tag": null,
+  "commit": "8c9bff4b",
+  "note": "Source: the v1 mainnet manifest, prepared ahead of deployment. Values are the deploy plan, not a live readback.",
   "entries": [
     {
       "key": "midwayFeeBps",
       "value": 50,
       "unit": "bps",
-      "description": "Midway fee on terminal fulfilled measured FWA spend, in basis points. Hard cap 300."
-    },
-    {
-      "key": "treasuryShareBps",
-      "value": 10000,
-      "unit": "bps",
-      "description": "Share of the Midway fee sent to treasury, in basis points. 10000 sends the whole fee."
-    },
-    {
-      "key": "referralShareBps",
-      "value": 0,
-      "unit": "bps",
-      "description": "Share of the Midway fee paid to the referrer, in basis points. Zero at launch."
+      "description": "Midway fee on terminal fulfilled measured FWA spend, in basis points. Charged in ETH to the treasury recipient; the fee model has one leg."
     },
     {
       "key": "rewardTreasuryBps",
@@ -37,43 +25,25 @@
       "key": "genesisStart",
       "value": 1788825600,
       "unit": "unix timestamp",
-      "description": "Unix timestamp when the first Shared Upside cycle begins."
+      "description": "Unix timestamp when the first Shared Upside cycle begins. Draws stay off at launch; activity and the skim accrue into cycle 1 from this timestamp until the owner calls enableDraws."
     },
     {
       "key": "cycleInterval",
       "value": 604800,
       "unit": "seconds",
-      "description": "Length of each Shared Upside cycle, in seconds."
+      "description": "Length of each Shared Upside cycle after draws are enabled, in seconds."
     },
     {
-      "key": "minimumManagedFwaPayout",
-      "value": "10000000000000000",
-      "unit": "wei",
-      "description": "Minimum FWA payout, in wei, below which managed settlement falls back to ETH."
-    },
-    {
-      "key": "fwaConversionFloorRate",
-      "value": "0",
-      "unit": "wei",
-      "description": "Minimum FWA per ETH conversion rate the floor enforces, scaled by 1e18, or zero to disable the floor."
-    },
-    {
-      "key": "fwaConversionSlippageCapBps",
-      "value": 300,
+      "key": "sharedUpside.payoutBps",
+      "value": 8500,
       "unit": "bps",
-      "description": "Allowed shortfall below the observed pool price window, in basis points. At most 1000. Zero disables the spot leg."
+      "description": "Share of a cycle's accumulated pot paid to the draw winner, in basis points."
     },
     {
-      "key": "fwaConversionObservationWindowBlocks",
-      "value": 64,
-      "unit": "blocks",
-      "description": "Length of the observed price window, in blocks, split into eight buckets. Range 8 to 7200."
-    },
-    {
-      "key": "fwaConversionMinObservations",
-      "value": 4,
-      "unit": "count",
-      "description": "Minimum number of price observations required before the conversion floor is valid."
+      "key": "sharedUpside.vrfRetryDelay",
+      "value": 86400,
+      "unit": "seconds",
+      "description": "Delay before a failed Shared Upside VRF request may be retried, in seconds."
     },
     {
       "key": "keyHash",

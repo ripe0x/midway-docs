@@ -18,15 +18,10 @@ const SLUGS = {
   MidwayRegistry: "midway-registry",
   FwaEngineV1: "fwa-engine-v1",
   RequestBuyer: "request-buyer",
-  AssetPolicy: "asset-policy",
   RewardVault: "reward-vault",
   RewardSplitter: "reward-splitter",
   SharedUpside: "shared-upside",
-  ReferralRewards: "referral-rewards",
-  FwaConversionFloor: "fwa-conversion-floor",
   ChainlinkVrfAdapter: "chainlink-vrf-adapter",
-  MidwayBatchAccountFactory: "midway-batch-account-factory",
-  MidwayBatchAccount: "midway-batch-account",
 };
 
 function sourceLine(book) {
@@ -169,32 +164,58 @@ function renderDeployedContractsTable(contracts, chainId) {
   return lines.join("\n");
 }
 
-function renderMainnetSection() {
+function renderRetiredGraphSection(graph, chainId) {
   const lines = [];
-  lines.push("## Mainnet");
+  lines.push(`### Retired: ${code(graph.releaseId)}`);
   lines.push("");
-  lines.push(`- **Release**: ${code(mainnet.releaseId)}`);
-  lines.push(`- **Deploy block**: ${mainnet.deployBlock}`);
-  lines.push(`- **Source**: ${sourceLine(mainnet)}`);
-  if (mainnet.deployer) {
-    lines.push(`- **Deployer**: ${addressLink(mainnet.deployer, mainnet.chainId)}`);
+  lines.push(`- **Source**: ${sourceLine(graph)}`);
+  if (graph.deployBlock) lines.push(`- **Deploy block**: ${graph.deployBlock}`);
+  if (graph.deployer) lines.push(`- **Deployer**: ${addressLink(graph.deployer, chainId)}`);
+  if (graph.owner) lines.push(`- **Owner**: ${addressLink(graph.owner, chainId)}`);
+  if (graph.note) lines.push(`- **Note**: ${cell(graph.note)}`);
+  lines.push(`- **Reason retired**: ${cell(graph.reason)}`);
+  lines.push("");
+  lines.push(renderDeployedContractsTable(graph.contracts, chainId));
+  return lines.join("\n");
+}
+
+function renderNetworkSection(title, data, { warning } = {}) {
+  const lines = [];
+  lines.push(`## ${title}`);
+  lines.push("");
+  if (warning) {
+    lines.push("{% hint style=\"warning\" %}");
+    lines.push(warning);
+    lines.push("{% endhint %}");
+    lines.push("");
   }
-  if (mainnet.owner) {
-    lines.push(`- **Owner**: ${addressLink(mainnet.owner, mainnet.chainId)}`);
-  }
-  if (mainnet.status === "paused") {
+  lines.push(`- **Release**: ${code(data.releaseId)}`);
+  if (data.status === "pending") {
+    lines.push(`- **Status**: Not yet deployed. ${code(data.releaseId)} is pending deployment.`);
+  } else if (data.status === "paused") {
+    lines.push(`- **Deploy block**: ${data.deployBlock}`);
+    lines.push(`- **Source**: ${sourceLine(data)}`);
     lines.push(`- **Status**: Paused. Activation pending.`);
-  } else if (mainnet.status === "active") {
+  } else if (data.status === "active") {
+    lines.push(`- **Deploy block**: ${data.deployBlock}`);
+    lines.push(`- **Source**: ${sourceLine(data)}`);
     lines.push(
-      `- **Status**: Deployed and unpaused since block ${mainnet.unpausedBlock}. Curated access; the operator allowlists applications. FWAT reward legs pending the distributor grant.`
+      `- **Status**: Deployed and unpaused since block ${data.unpausedBlock}. Curated access; the operator allowlists applications. FWAT reward legs pending the distributor grant.`
     );
   }
   lines.push("");
-  lines.push("### Contracts");
-  lines.push("");
-  lines.push(renderDeployedContractsTable(mainnet.contracts, mainnet.chainId));
 
-  const external = mainnet.external || [];
+  if (data.status === "pending") {
+    lines.push("### Contracts");
+    lines.push("");
+    lines.push(`No ${code(data.releaseId)} contract is deployed on this network yet.`);
+  } else {
+    lines.push("### Contracts");
+    lines.push("");
+    lines.push(renderDeployedContractsTable(data.contracts, data.chainId));
+  }
+
+  const external = data.external || [];
   if (external.length) {
     lines.push("");
     lines.push("### External contracts");
@@ -202,7 +223,7 @@ function renderMainnetSection() {
     lines.push(
       table(
         ["Name", "Address"],
-        external.map((e) => [cell(e.name), addressLink(e.address, mainnet.chainId)])
+        external.map((e) => [cell(e.name), addressLink(e.address, data.chainId)])
       )
     );
   }
@@ -219,66 +240,28 @@ function renderMainnetSection() {
     lines.push(
       table(
         ["Name", "Address"],
-        restricted.map((e) => [cell(e.name), addressLink(e.address, mainnet.chainId)])
+        restricted.map((e) => [cell(e.name), addressLink(e.address, data.chainId)])
       )
     );
+  }
+
+  const retired = data.retired || [];
+  for (const graph of retired) {
+    lines.push("");
+    lines.push(renderRetiredGraphSection(graph, data.chainId));
   }
 
   return lines.join("\n");
 }
 
+function renderMainnetSection() {
+  return renderNetworkSection("Mainnet", mainnet);
+}
+
 function renderSepoliaSection() {
-  const lines = [];
-  lines.push("## Sepolia");
-  lines.push("");
-  lines.push("{% hint style=\"warning\" %}");
-  lines.push("Testnet addresses. Never use a Sepolia address on mainnet.");
-  lines.push("{% endhint %}");
-  lines.push("");
-  lines.push(`- **Release**: ${code(sepolia.releaseId)}`);
-  lines.push(`- **Deploy block**: ${sepolia.deployBlock}`);
-  lines.push(`- **Source**: ${sourceLine(sepolia)}`);
-  if (sepolia.status === "paused") {
-    lines.push(`- **Status**: Paused. Activation pending.`);
-  }
-  if (sepolia.note) {
-    lines.push(`- **Note**: ${cell(sepolia.note)}`);
-  }
-  lines.push("");
-  lines.push("### Contracts");
-  lines.push("");
-  lines.push(renderDeployedContractsTable(sepolia.contracts, sepolia.chainId));
-
-  const external = sepolia.external || [];
-  if (external.length) {
-    lines.push("");
-    lines.push("### External contracts");
-    lines.push("");
-    lines.push(
-      table(
-        ["Name", "Address"],
-        external.map((e) => [cell(e.name), addressLink(e.address, sepolia.chainId)])
-      )
-    );
-  }
-  const restricted = external.filter((e) => e.restricted);
-  if (restricted.length) {
-    lines.push("");
-    lines.push("### ETH only collections");
-    lines.push("");
-    lines.push(
-      "Manual NFT delivery is denied for these collections. Managed ETH and $FWA settlement are unaffected."
-    );
-    lines.push("");
-    lines.push(
-      table(
-        ["Name", "Address"],
-        restricted.map((e) => [cell(e.name), addressLink(e.address, sepolia.chainId)])
-      )
-    );
-  }
-
-  return lines.join("\n");
+  return renderNetworkSection("Sepolia", sepolia, {
+    warning: "Testnet addresses. Never use a Sepolia address on mainnet.",
+  });
 }
 
 function renderDeploymentsPage() {
@@ -302,6 +285,10 @@ function renderLaunchConfigPage() {
   lines.push("");
   lines.push(MARKER);
   lines.push("");
+  if (config.note) {
+    lines.push(noDash(config.note));
+    lines.push("");
+  }
   lines.push(
     table(
       ["Key", "Value", "Unit", "Description"],
@@ -327,7 +314,11 @@ function renderContractsIndexPage() {
   const rows = reference.contracts.map((c) => {
     const slug = SLUGS[c.name];
     const entry = findMainnetEntry(c.name);
-    const addressCell = entry ? addressLink(entry.address, mainnet.chainId) : "Deployed per application";
+    const addressCell = entry
+      ? addressLink(entry.address, mainnet.chainId)
+      : mainnet.status === "pending"
+        ? "Pending deployment"
+        : "Deployed per application";
     return [
       `[${cell(c.name)}](${slug}.md)`,
       code(c.source),
@@ -428,9 +419,7 @@ function renderContractPage(c) {
     lines.push("");
   }
 
-  if (c.name === "MidwayBatchAccount") {
-    lines.push("**Address**: deployed per application as a clone of the implementation.");
-  } else {
+  {
     const entry = findMainnetEntry(c.name);
     if (entry) {
       lines.push(`**Address**: ${addressLink(entry.address, mainnet.chainId)}`);
@@ -438,6 +427,8 @@ function renderContractPage(c) {
         lines.push("");
         lines.push("The listed address is the implementation cloned per request.");
       }
+    } else if (mainnet.status === "pending") {
+      lines.push(`**Address**: not yet deployed. ${code(mainnet.releaseId)} is pending deployment.`);
     }
   }
   lines.push(`**Source**: ${code(c.source)}`);

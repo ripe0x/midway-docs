@@ -4,7 +4,7 @@
 
 FWAT custody with measured ingress and address-owned pots.
 
-**Address**: [`0xaA9178647be2C670E8998364caa44d3F4FE25D46`](https://evm.now/address/0xaA9178647be2C670E8998364caa44d3F4FE25D46?chainId=1)
+**Address**: not yet deployed. `midway-v1` is pending deployment.
 **Source**: `src/midway/RewardVault.sol`
 
 ## Functions
@@ -16,31 +16,33 @@ FWAT custody with measured ingress and address-owned pots.
 | `acceptOwner()` |  |
 | `deposit(address,uint256)` |  |
 | `migrate(address,uint256)` |  |
+| `payout(uint256,uint8,uint256)` | Pays `amount` of application `applicationId`'s `kind` pot to the recipient the         registry names for that kind now. |
 | `proposeOwner(address)` |  |
 | `setDepositor(address,bool)` |  |
-| `sweepUnattributed(address)` | Credit FWAT held by this vault above `totalAttributed` to `pot`. Surplus accumulates from raw transfers into the vault that never went through `deposit`. Owner only. |
-| `transfer(address,uint256)` |  |
+| `sweepUnattributed(address)` | Credit FWAT held by this vault above `totalAttributed` to `pot`. Surplus accumulates         from raw transfers into the vault that never went through `deposit`. Owner only. |
+| `transfer(address,uint256)` | Moves `amount` of the caller's own pot to `recipient`. |
+| `transferFor(address,address,uint256)` | Pays `amount` of `potAccount`'s own pot to `recipient`. Callable only by         `potAccount`'s registry-authorized account operator. |
+
+<details>
+<summary>`payout(uint256,uint8,uint256)`</summary>
+
+Permissionless. The recipient is resolved from the registry at call time and no caller      argument can redirect it, so restricting the caller would protect nothing.
+
+</details>
 
 ### View
 
 | Function | Notice |
 | --- | --- |
-| `authorized(address)` |  |
+| `VAULT_ID()` |  |
 | `depositorAllowed(address)` |  |
 | `owner()` |  |
 | `pendingOwner()` |  |
 | `potOf(address)` |  |
+| `registry()` |  |
 | `token()` |  |
 | `totalAttributed()` |  |
-| `VAULT_ID()` |  |
 | `vaultId()` |  |
-
-<details>
-<summary>`authorized(address)`</summary>
-
-Compatibility read for older Registry integrations. A nonzero pot address is valid; RewardVault intentionally has no controller allowlist.
-
-</details>
 
 ## Events
 
@@ -51,6 +53,7 @@ Compatibility read for older Registry integrations. A nonzero pot address is val
 | `Migrated(address,address,uint256)`<br><details><summary>`0x928fd553...`</summary>`0x928fd5531324ee87d76cc5307dc37580174da76b85cd546da631b2670bc266b5`</details> |  |
 | `OwnershipTransferProposed(address,address)`<br><details><summary>`0xf4e75b79...`</summary>`0xf4e75b79500ab730f8a026ed3cba6d55331bcb64c9e9f60c548e371356e5e3c0`</details> |  |
 | `OwnershipTransferred(address,address)`<br><details><summary>`0x8be0079c...`</summary>`0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0`</details> |  |
+| `PaidOut(uint256,uint8,address,uint256)`<br><details><summary>`0x8626ed76...`</summary>`0x8626ed764ae9626517f5725c1b02d63cb6b6f2fa4982684e2f0c0534936db07a`</details> |  |
 | `Transferred(address,address,uint256)`<br><details><summary>`0xd1ba4ac2...`</summary>`0xd1ba4ac2e2a11b5101f6cb4d978f514a155b421e8ec396d2d9abaf0bb02917ee`</details> |  |
 | `UnattributedSwept(address,uint256)`<br><details><summary>`0x288a1a48...`</summary>`0x288a1a4846eaeee6f2f04a72e5abc8755787e49c446f950b92e387c40c006362`</details> |  |
 

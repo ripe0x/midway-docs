@@ -1,5 +1,10 @@
 # Changelog
 
+- midway-v1 rework in progress. Fresh graph: `MidwayBuyer`, `MidwayRegistry`, `FwaEngineV1`,
+  `RewardVault`, `RewardSplitter`, and `SharedUpside` are rewritten or changed; `AssetPolicy`,
+  `FwaConversionFloor`, `FwaPriceFloor`, `ReferralRewards`, and the batch account infrastructure are
+  removed from the launch graph. `midway-v0.1` moves to retired, superseded before third-party use.
+  Not yet deployed; see [Deployments](reference/deployments.md).
 - 2026-09-07, Ethereum mainnet. Midway unpaused for acquisitions, under curated access with one
   operator-allowlisted application. `MidwayRegistry.setApplicationAllowed(1, true)`
   ([`0x29058cc4...4a50b`](https://evm.now/tx/0x29058cc47b373ab43bab09c76d055748999b9aa8f3c1a8268819c91cf094a50b?chainId=1),

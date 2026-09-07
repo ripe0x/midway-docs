@@ -23,7 +23,6 @@
 * [Settlement modes](concepts/settlement-modes.md)
 * [Fees](concepts/fees.md)
 * [Shared upside](concepts/shared-upside.md)
-* [Batch and paced acquisitions](concepts/batch-and-paced-acquisitions.md)
 
 ## Guides
 
@@ -41,15 +40,10 @@
   * [MidwayRegistry](reference/contracts/midway-registry.md)
   * [FwaEngineV1](reference/contracts/fwa-engine-v1.md)
   * [RequestBuyer](reference/contracts/request-buyer.md)
-  * [AssetPolicy](reference/contracts/asset-policy.md)
   * [RewardVault](reference/contracts/reward-vault.md)
   * [RewardSplitter](reference/contracts/reward-splitter.md)
   * [SharedUpside](reference/contracts/shared-upside.md)
-  * [ReferralRewards](reference/contracts/referral-rewards.md)
-  * [FwaConversionFloor](reference/contracts/fwa-conversion-floor.md)
   * [ChainlinkVrfAdapter](reference/contracts/chainlink-vrf-adapter.md)
-  * [MidwayBatchAccountFactory](reference/contracts/midway-batch-account-factory.md)
-  * [MidwayBatchAccount](reference/contracts/midway-batch-account.md)
 
 ## Security and trust
 

@@ -4,7 +4,7 @@
 
 Immutable Chainlink VRF v2.5 bridge for SharedUpside's cycle/attempt callback ABI.
 
-**Address**: [`0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C`](https://evm.now/address/0x3d9eE8772a3DEA709DCe7503A3795E691C1f718C?chainId=1)
+**Address**: not yet deployed. `midway-v1` is pending deployment.
 **Source**: `src/midway/ChainlinkVrfAdapter.sol`
 
 ## Functions
@@ -24,12 +24,12 @@ Immutable Chainlink VRF v2.5 bridge for SharedUpside's cycle/attempt callback AB
 
 | Function | Notice |
 | --- | --- |
-| `callbackGasLimit()` |  |
-| `coordinator()` |  |
 | `MAX_CALLBACK_GAS_LIMIT()` |  |
 | `MAX_REQUEST_CONFIRMATIONS()` |  |
 | `MIN_CALLBACK_GAS_LIMIT()` |  |
 | `MIN_REQUEST_CONFIRMATIONS()` |  |
+| `callbackGasLimit()` |  |
+| `coordinator()` |  |
 | `nativePayment()` |  |
 | `owner()` | Get the current owner |
 | `requestConfirmations()` |  |
@@ -43,8 +43,8 @@ Immutable Chainlink VRF v2.5 bridge for SharedUpside's cycle/attempt callback AB
 | --- | --- |
 | `CoordinatorSet(address)`<br><details><summary>`0xd1a6a142...`</summary>`0xd1a6a14209a385a964d036e404cb5cfb71f4000cdb03c9366292430787261be6`</details> |  |
 | `DuplicateRandomnessIgnored(uint256)`<br><details><summary>`0xb366aff5...`</summary>`0xb366aff590d2eca29536da504c04cd3d13f147f9fb557722fcb6ba4f8de643b9`</details> |  |
-| `OwnershipTransferred(address,address)`<br><details><summary>`0x8be0079c...`</summary>`0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0`</details> |  |
 | `OwnershipTransferRequested(address,address)`<br><details><summary>`0xed8889f5...`</summary>`0xed8889f560326eb138920d842192f0eb3dd22b4f139c87a2c57538e05bae1278`</details> |  |
+| `OwnershipTransferred(address,address)`<br><details><summary>`0x8be0079c...`</summary>`0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0`</details> |  |
 | `RandomnessForwarded(uint256,uint256,uint32,uint256)`<br><details><summary>`0x5bd62aff...`</summary>`0x5bd62aff29df3e181b5983a0e930576f26a0be26a22430467109402fc919c4fd`</details> |  |
 | `RandomnessRequested(uint256,uint256,uint32)`<br><details><summary>`0xaa5aff53...`</summary>`0xaa5aff534921e870084a84ecef808edd4c3b999dc63413f88ceadbbe8055f685`</details> |  |
 | `RequestConfigSet(uint16,uint16,uint32,uint32,bool,bool)`<br><details><summary>`0x11f266d1...`</summary>`0x11f266d161cacb6c6f6d9f53b39847c0cdd9bd378d00a5830626be8bd9163e8b`</details> |  |

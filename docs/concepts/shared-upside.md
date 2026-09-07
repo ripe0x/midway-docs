@@ -1,73 +1,47 @@
 # Shared upside
 
-## Curated weekly activation
+Shared Upside is Midway's core incentive: a share of every application's $FWA purchaser rewards
+funds a weekly draw among the applications that acquired in that cycle.
 
-Mainnet Shared Upside cycles run on a `cycleInterval` of 604,800 seconds, one week, starting from a
-genesis timestamp of unix 1788825600.
+## Draws start off
 
-During curated launch access, a weekly cycle activates only when all of these are true:
+`SharedUpside` starts in cycle 1 with `drawsEnabled() == false`. Activity from every application
+accrues into cycle 1's weights exactly as in any cycle, and the 25% reward skim (see
+[Fees](fees.md)) accrues into the cycle pot. `checkpoint` is a no-op while draws are off, so cycle 1
+does not close, and no randomness request is made while draws are off.
 
-- combined qualifying successful spend is at least `1 ETH`;
-- at least three curated applications participate; and
-- each of those three contributes at least `0.1 ETH` of successful spend.
+The owner enables draws once, one way:
 
-The `0.1 ETH` floor is only an anti-dust counting rule. Successful spend below it still receives full
-spend-proportional weight and remains eligible to win: it simply does not count as one of the three
-applications needed to activate the draw.
-
-Example:
-
-```text
-MegaRip        0.65 ETH  -> 65% of weight, counts toward the app gate
-Application B 0.20 ETH  -> 20% of weight, counts toward the app gate
-Application C 0.14 ETH  -> 14% of weight, counts toward the app gate
-Application D 0.01 ETH  ->  1% of weight, does not count toward the app gate
-Total          1.00 ETH  -> cycle activates
+```solidity
+function enableDraws() external;
 ```
 
-If a gate fails:
+`enableDraws` schedules the first close at the next cycle boundary after the call. That close is a
+normal draw: a VRF-selected winner weighted by all activity recorded since launch, paid the
+configured payout share of everything accumulated since genesis. There is no separate launch gate,
+minimum application count, or per-application counting floor: the owner's judgment that the
+applications using Midway are a real population replaces a formula guessing at what "enough" means,
+and the switch is one-way so it is a commitment.
 
-- no winner is fabricated;
-- no randomness is requested;
-- the $FWA pot rolls forward; and
-- that week's weights expire instead of accumulating into the first later draw.
+From cycle 2 on, cycles close on the configured interval. Mainnet cycles run on a `cycleInterval` of
+604,800 seconds (one week), starting from a genesis timestamp; see
+[Launch configuration](../reference/launch-configuration.md) for the exact values.
 
-The gate ensures the network exists before the pot is drawn. It does not cap MegaRip's weight or
-promise equal odds after activation.
+## Draws
 
-## Open access cycles
-
-The curated-to-open switch is one-way and takes effect at a scheduled cycle boundary. Open cycles
-remove the application approval, three-application gate, and per-application counting floor because
-permissionless identities can Sybil an identity-count rule.
-
-Open cycles keep the combined successful-spend activation floor. If it fails, the pot still rolls and
-the week's weights expire.
-
-## Awards and purchaser rewards
-
-The weekly payout is 85% of drawable $FWA to one application, with 15% retained as the next seed.
-Odds are proportional to successful spend.
-
-FWA purchaser rewards are claimed from each request-specific account. `RewardSplitter` splits gross
-FWAT rewards three ways at harvest: treasury, Shared Upside, and the application. The launch split is
-10% treasury, 25% Shared Upside, and the 65% remainder to the application. The registry operator can
-change the treasury and Shared Upside shares together with `setSplit(treasuryBps, skimBps)`, bounded
-independently by `MAX_TREASURY_BPS` (2,000 basis points, 20%) and `MAX_SKIM_BPS` (3,000 basis points,
-30%). The operator can also repoint the treasury pot address with `setTreasury`. Both bps values are
-read live at harvest, so a change applies to any request not yet harvested, which is what lets the
-operator retune the split as the $FWA price moves. The application share always goes to the reward
-recipient saved when that request was created, even if the application changes its Registry recipient
-before harvesting.
-
-Midway does not maintain a receiver allowlist or block an application's saved reward recipient.
-`RewardVault` must be added to the FWAToken distributor allowlist so it can pay those recipients. A
-recipient contract can receive that payment, but a contract that will distribute $FWA onward must
-also be registered. On mainnet, the FWA team must review and approve the contract. Without that
-registration, FWAToken's transfer lock blocks the contract's outbound distribution; the restriction
-does not come from Midway.
+The payout is `sharedUpside.payoutBps` (85% at launch) of the cycle's accumulated pot to one winner,
+with the remainder retained as the next cycle's seed. Odds are proportional to an application's
+recorded successful spend in that cycle. `SharedUpside.claimAward` migrates the award into the
+winning application's `SharedUpsideAward` pot on `RewardVault`; `RewardVault.payout` or
+`payoutRewards` then moves it to `sharedUpsideAwardRecipientOf(applicationId)`.
 
 An activated cycle saves its pot, weights, recipients, payout rate, and VRF route. Lost randomness
-can be retried through that same saved coordinator, key, and subscription. Configuration changes
-apply only to future cycles. A retry cannot change the competition or skip the cycle. An award does
-not expire and remains in an isolated `RewardVault` balance until claimed.
+can be retried through that same saved coordinator, key, and subscription; a retry cannot change the
+competition or skip the cycle. An award does not expire and remains in the application's `RewardVault`
+pot until paid out.
+
+## The activity outbox
+
+`recordActivity` is called from inside settlement. A failure sets the record `pending` and returns;
+`retrySharedUpsideActivity` drives it later, permissionlessly. A Shared Upside fault never blocks a
+settlement or a refund.

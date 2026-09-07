@@ -4,9 +4,7 @@
 
 Single-use FWA purchaser for one Midway request.
 
-**Address**: [`0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46`](https://evm.now/address/0xD92DFcb483f0c993A778Ac09CD034b90F7eB8A46?chainId=1)
-
-The listed address is the implementation cloned per request.
+**Address**: not yet deployed. `midway-v1` is pending deployment.
 **Source**: `src/midway/RequestBuyer.sol`
 
 ## Functions
@@ -18,11 +16,10 @@ The listed address is the implementation cloned per request.
 | `acceptBidAsTokens(uint256,uint256)` | Settles through FWA's token bid and sends the measured output to RewardVault. |
 | `acceptDepositorBid(uint256,address)` |  |
 | `acquire(uint256,uint256,address,uint256)` |  |
-| `claimAccrued(uint256)` | Spends this request's accrued surcharge allowance on FWARewards' token buy and forwards the output to the RewardVault. The engine derives `minOut` from the effective conversion floor (`FwaEngineV1.accruedRewardMinimumOutput`); a zero bound is refused here so no caller can route an unbounded buy through this clone. |
+| `claimAccrued(uint256)` | Spends this request's accrued surcharge allowance on FWARewards' token buy and forwards         the output to the RewardVault. The engine derives `minOut` from live pool spot; a zero         bound is refused here so no caller can route an unbounded buy through this clone. |
 | `claimEpoch(uint256)` |  |
-| `creditReferral(address,uint256)` | Credits referral rewards without making settlement depend on the recipient. |
 | `forwardNFT(address,uint256,address)` |  |
-| `initialize(address,address,address,address,address,address)` |  |
+| `initialize(address,address,address,address,address)` |  |
 | `keepNFT(uint256)` |  |
 | `payTo(address,uint256)` |  |
 | `recoverStuckNFT(uint256)` |  |
@@ -39,18 +36,17 @@ The listed address is the implementation cloned per request.
 | `fwaRewards()` |  |
 | `fwaToken()` |  |
 | `onERC721Received(address,address,uint256,bytes)` |  |
-| `referralRewards()` |  |
 | `rewardVault()` |  |
 
 ## Errors
 
 | Error | Selector | Notice |
 | --- | --- | --- |
+| `AccruedClaimUnavailable()` | `0x162fb4f6` |  |
 | `AlreadyAcquired()` | `0xcf166abf` |  |
 | `AlreadyInitialized()` | `0x0dc149f0` |  |
 | `BalanceInvariant()` | `0x66084207` |  |
 | `InsufficientPayment()` | `0xcd1c8867` |  |
-| `InvalidAccruedRewardFloor()` | `0xb08d7601` |  |
 | `InvalidRoute()` | `0x84e505d2` |  |
 | `Reentrancy()` | `0xab143c06` |  |
 | `TokenTransferFailed()` | `0x045c4b02` |  |
