@@ -14,7 +14,7 @@
 | Contract | Address | Runtime code hash |
 | --- | --- | --- |
 | RewardVault | [`0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22`](https://evm.now/address/0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22?chainId=1) | `0xbef38e12...` |
-| MidwayRegistry | [`0x837C686Be67f23f04A1d55B681b95F014590dc9A`](https://evm.now/address/0x837C686Be67f23f04A1d55B681b95F014590dc9A?chainId=1) | `0xe3797e7e...` |
+| MidwayRegistry | [`0x837C686BE67f23f04A1d55B681B95F014590dc9A`](https://evm.now/address/0x837C686BE67f23f04A1d55B681B95F014590dc9A?chainId=1) | `0xe3797e7e...` |
 | MidwayBuyer | [`0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180`](https://evm.now/address/0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180?chainId=1) | `0x2a13f0de...` |
 | SharedUpside | [`0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2`](https://evm.now/address/0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2?chainId=1) | `0x10b26104...` |
 | RequestBuyer | [`0x570af983A58877febf5eF653357Aa3A334d7b009`](https://evm.now/address/0x570af983A58877febf5eF653357Aa3A334d7b009?chainId=1) | `0xa3d3155f...` |

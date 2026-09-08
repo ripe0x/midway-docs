@@ -18,9 +18,9 @@
     {
       "name": "MidwayRegistry",
       "key": "registry",
-      "address": "0x837C686Be67f23f04A1d55B681b95F014590dc9A",
+      "address": "0x837C686BE67f23f04A1d55B681B95F014590dc9A",
       "codeHash": "0xe3797e7ec920cafe5842dc89a0ec697694bdb1cbd94f419a39ca189b828b06ac",
-      "explorerUrl": "https://evm.now/address/0x837C686Be67f23f04A1d55B681b95F014590dc9A?chainId=1"
+      "explorerUrl": "https://evm.now/address/0x837C686BE67f23f04A1d55B681B95F014590dc9A?chainId=1"
     },
     {
       "name": "MidwayBuyer",

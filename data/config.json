@@ -1,7 +1,7 @@
 {
-  "tag": null,
-  "commit": "8c9bff4b",
-  "note": "Source: the v1 mainnet manifest, prepared ahead of deployment. Values are the deploy plan, not a live readback.",
+  "tag": "midway-v1-audit-rc1",
+  "commit": "9b8315bba8dd29d63b544477cbd7fba14b0599d3",
+  "note": "Source: the v1 mainnet manifest used for the verified deployment.",
   "entries": [
     {
       "key": "midwayFeeBps",

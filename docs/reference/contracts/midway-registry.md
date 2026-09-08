@@ -4,7 +4,7 @@
 
 Registers applications and their authorized purchasing accounts. An application has one         admin and any number of bound accounts; a bound account may name one operator to drive         its account-only Buyer calls without holding the account's own key.
 
-**Address**: [`0x837C686Be67f23f04A1d55B681b95F014590dc9A`](https://evm.now/address/0x837C686Be67f23f04A1d55B681b95F014590dc9A?chainId=1)
+**Address**: [`0x837C686BE67f23f04A1d55B681B95F014590dc9A`](https://evm.now/address/0x837C686BE67f23f04A1d55B681B95F014590dc9A?chainId=1)
 **Source**: `src/midway/MidwayRegistry.sol`
 
 ## Functions

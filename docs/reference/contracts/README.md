@@ -5,7 +5,7 @@
 | Contract | Source | Address | Functions | Events | Errors |
 | --- | --- | --- | --- | --- | --- |
 | [MidwayBuyer](midway-buyer.md) | `src/midway/MidwayBuyer.sol` | [`0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180`](https://evm.now/address/0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180?chainId=1) | 39 | 14 | 13 |
-| [MidwayRegistry](midway-registry.md) | `src/midway/MidwayRegistry.sol` | [`0x837C686Be67f23f04A1d55B681b95F014590dc9A`](https://evm.now/address/0x837C686Be67f23f04A1d55B681b95F014590dc9A?chainId=1) | 37 | 15 | 12 |
+| [MidwayRegistry](midway-registry.md) | `src/midway/MidwayRegistry.sol` | [`0x837C686BE67f23f04A1d55B681B95F014590dc9A`](https://evm.now/address/0x837C686BE67f23f04A1d55B681B95F014590dc9A?chainId=1) | 37 | 15 | 12 |
 | [FwaEngineV1](fwa-engine-v1.md) | `src/midway/FwaEngineV1.sol` | [`0xd372c38Adc63Aa264F023AEe7A57C2261B67a435`](https://evm.now/address/0xd372c38Adc63Aa264F023AEe7A57C2261B67a435?chainId=1) | 45 | 10 | 20 |
 | [RequestBuyer](request-buyer.md) | `src/midway/RequestBuyer.sol` | [`0x570af983A58877febf5eF653357Aa3A334d7b009`](https://evm.now/address/0x570af983A58877febf5eF653357Aa3A334d7b009?chainId=1) | 19 | 0 | 9 |
 | [RewardVault](reward-vault.md) | `src/midway/RewardVault.sol` | [`0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22`](https://evm.now/address/0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22?chainId=1) | 18 | 8 | 6 |
