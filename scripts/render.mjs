@@ -200,7 +200,7 @@ function renderNetworkSection(title, data, { warning } = {}) {
     lines.push(`- **Deploy block**: ${data.deployBlock}`);
     lines.push(`- **Source**: ${sourceLine(data)}`);
     lines.push(
-      `- **Status**: Deployed and unpaused since block ${data.unpausedBlock}. Curated access; the operator allowlists applications. FWAT reward legs pending the distributor grant.`
+      `- **Status**: ${data.statusLine || `Deployed and unpaused since block ${data.unpausedBlock}. Curated access; the operator allowlists applications. FWAT reward legs pending the distributor grant.`}`
     );
   }
   lines.push("");

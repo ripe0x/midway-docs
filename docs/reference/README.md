@@ -60,16 +60,17 @@ There is nothing to migrate; no v0.1 acquisition was ever made.
 New FWA incompatibility is handled by activating a new immutable engine and `RequestBuyer`
 implementation for future activity. Old engines retain permissionless historical exits.
 
-## Before production
+## Mainnet launch status
 
-Midway v1 requires, before the graph is unpaused:
+Midway v1 is deployed on Ethereum mainnet with ownership and operator authority handed off. The
+deployment is paused, and Shared Upside draws remain disabled. The VRF consumer migration, launch
+configuration readbacks, documentation and tester updates, and audit work are complete.
 
-- the FWAToken owner granting the v1 `RewardVault` distributor status;
-- the v1 `ChainlinkVrfAdapter` registered on the VRF subscription and the v0.1 adapter removed;
-- the Shared Upside launch cycle configuration applied and its readback asserted;
-- the mainnet keeper profile live on at least two writer cells, confirmed advancing a request end to
-  end;
-- midway-tester and this documentation site current on the v1 API; and
-- a full audit delta on the rewritten and changed contracts.
+Before production activation:
 
-Midway v1 is not yet deployed. See [Deployments](deployments.md) for current status.
+- the FWAToken owner must grant the v1 `RewardVault` distributor status;
+- the mainnet keeper profile must be deployed and checked against a live request; and
+- the Midway owner must allow the intended applications and unpause acquisitions. Shared Upside
+  draws are enabled separately after real application activity exists.
+
+See [Deployments](deployments.md) for verified addresses, runtime code hashes, and current status.

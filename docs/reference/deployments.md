@@ -109,11 +109,48 @@ Testnet addresses. Never use a Sepolia address on mainnet.
 {% endhint %}
 
 - **Release**: `midway-v1`
-- **Status**: Not yet deployed. `midway-v1` is pending deployment.
+- **Deploy block**: 11662947
+- **Source**: commit `86d3e152`
+- **Status**: Deployed 2026-09-08 and unpaused since block 11663012. Open access from Unix time 1788895140: any registered application may acquire. RewardVault is a FWAToken distributor, so $FWA settlement and reward payouts work. Shared Upside cycles are 5 minutes; draws are off. Owner, operator and treasury are the deployer.
 
 ### Contracts
 
-No `midway-v1` contract is deployed on this network yet.
+| Contract | Address | Runtime code hash |
+| --- | --- | --- |
+| RewardVault | [`0xcBF6a81Bd19CF941b4e64E5FD5f337c71DeaE18F`](https://evm.now/address/0xcBF6a81Bd19CF941b4e64E5FD5f337c71DeaE18F?chainId=11155111) | `0x65f4c5b3...` |
+| MidwayRegistry | [`0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87`](https://evm.now/address/0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87?chainId=11155111) | `0xe3797e7e...` |
+| MidwayBuyer | [`0xb1A0973924BfEf447063E152C8210777D60fE7c8`](https://evm.now/address/0xb1A0973924BfEf447063E152C8210777D60fE7c8?chainId=11155111) | `0x6a6b48d4...` |
+| SharedUpside | [`0xaEcDE6AA65Dd0E8DDAD694846a7fA42123B5d8Cb`](https://evm.now/address/0xaEcDE6AA65Dd0E8DDAD694846a7fA42123B5d8Cb?chainId=11155111) | `0x950b9a27...` |
+| RequestBuyer | [`0xfaf6Fa09357C8176bFF05a62719E98C84D481F5A`](https://evm.now/address/0xfaf6Fa09357C8176bFF05a62719E98C84D481F5A?chainId=11155111) | `0xa3d3155f...` |
+| RewardSplitter | [`0x556a65f7D41b5a607153DC75a76F67f50d85cAF8`](https://evm.now/address/0x556a65f7D41b5a607153DC75a76F67f50d85cAF8?chainId=11155111) | `0x7c3c853a...` |
+| FwaEngineV1 | [`0x5Aba995c70F2f0A309337Db81CD03451b1992834`](https://evm.now/address/0x5Aba995c70F2f0A309337Db81CD03451b1992834?chainId=11155111) | `0xb6731536...` |
+| ChainlinkVrfAdapter | [`0x00bD2e9CCAb5642E205C1ab525A410e78557e2B4`](https://evm.now/address/0x00bD2e9CCAb5642E205C1ab525A410e78557e2B4?chainId=11155111) | `0x94d079e2...` |
+
+<details>
+<summary>Full runtime code hashes</summary>
+
+| Contract | Runtime code hash |
+| --- | --- |
+| RewardVault | `0x65f4c5b3751ae1ceb669ea81bd5961c819c497f40e902b3561ea5b757ab43622` |
+| MidwayRegistry | `0xe3797e7ec920cafe5842dc89a0ec697694bdb1cbd94f419a39ca189b828b06ac` |
+| MidwayBuyer | `0x6a6b48d4428a7b336e4a911da82d63b6f0d8eaf6873974340116e4d723a4a8d6` |
+| SharedUpside | `0x950b9a275c212174acf4ddac7048742bcbc2bfee127de4950552325cdf50bcd4` |
+| RequestBuyer | `0xa3d3155fdaa4dd55fd88aff7ebb24fa8a332740fc1be51502ced5eada48f20f6` |
+| RewardSplitter | `0x7c3c853aa0e659deb7dcf743676cf7d8509f602cbc6d0aefe00b05e27bdbbc35` |
+| FwaEngineV1 | `0xb673153667ffeb1ff32eadcbafc152cef1ab4fa48ef45189eb7b4f1357f4d90f` |
+| ChainlinkVrfAdapter | `0x94d079e2bb9f192fb943c26700dd0f5eb97c3766ef26306aa347b374ee2229ab` |
+
+</details>
+
+### External contracts
+
+| Name | Address |
+| --- | --- |
+| FWA | [`0x692542379d6A3fc8115ae2C19787FD5bE21578bD`](https://evm.now/address/0x692542379d6A3fc8115ae2C19787FD5bE21578bD?chainId=11155111) |
+| FWAToken | [`0x14ea7A2087E32610C08c5210E16aD163353F5Fe5`](https://evm.now/address/0x14ea7A2087E32610C08c5210E16aD163353F5Fe5?chainId=11155111) |
+| FWARewards | [`0xc419b2Af53B5dD9B5d67Ce58B6a0aB5995C038e9`](https://evm.now/address/0xc419b2Af53B5dD9B5d67Ce58B6a0aB5995C038e9?chainId=11155111) |
+| FWATokenDistributorOwner | [`0xc0C608d15e59d8D3754D2828b8DD43a03B7026D2`](https://evm.now/address/0xc0C608d15e59d8D3754D2828b8DD43a03B7026D2?chainId=11155111) |
+| Chainlink VRF coordinator | [`0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B`](https://evm.now/address/0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B?chainId=11155111) |
 
 ### Retired: `9ccbfb18`
 
