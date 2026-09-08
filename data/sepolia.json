@@ -1,8 +1,99 @@
 {
   "chainId": 11155111,
   "releaseId": "midway-v1",
-  "status": "pending",
-  "contracts": [],
+  "status": "active",
+  "deployBlock": 11662947,
+  "unpausedBlock": 11663012,
+  "tag": null,
+  "commit": "86d3e152",
+  "deployer": "0xCB43078C32423F5348Cab5885911C3B5faE217F9",
+  "owner": "0xCB43078C32423F5348Cab5885911C3B5faE217F9",
+  "statusLine": "Deployed 2026-09-08 and unpaused since block 11663012. Open access from Unix time 1788895140: any registered application may acquire. RewardVault is a FWAToken distributor, so $FWA settlement and reward payouts work. Shared Upside cycles are 5 minutes; draws are off. Owner, operator and treasury are the deployer.",
+  "contracts": [
+    {
+      "name": "RewardVault",
+      "key": "rewardVault",
+      "address": "0xcBF6a81Bd19CF941b4e64E5FD5f337c71DeaE18F",
+      "codeHash": "0x65f4c5b3751ae1ceb669ea81bd5961c819c497f40e902b3561ea5b757ab43622",
+      "explorerUrl": "https://evm.now/address/0xcBF6a81Bd19CF941b4e64E5FD5f337c71DeaE18F?chainId=11155111"
+    },
+    {
+      "name": "MidwayRegistry",
+      "key": "registry",
+      "address": "0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87",
+      "codeHash": "0xe3797e7ec920cafe5842dc89a0ec697694bdb1cbd94f419a39ca189b828b06ac",
+      "explorerUrl": "https://evm.now/address/0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87?chainId=11155111"
+    },
+    {
+      "name": "MidwayBuyer",
+      "key": "buyer",
+      "address": "0xb1A0973924BfEf447063E152C8210777D60fE7c8",
+      "codeHash": "0x6a6b48d4428a7b336e4a911da82d63b6f0d8eaf6873974340116e4d723a4a8d6",
+      "explorerUrl": "https://evm.now/address/0xb1A0973924BfEf447063E152C8210777D60fE7c8?chainId=11155111"
+    },
+    {
+      "name": "SharedUpside",
+      "key": "sharedUpside",
+      "address": "0xaEcDE6AA65Dd0E8DDAD694846a7fA42123B5d8Cb",
+      "codeHash": "0x950b9a275c212174acf4ddac7048742bcbc2bfee127de4950552325cdf50bcd4",
+      "explorerUrl": "https://evm.now/address/0xaEcDE6AA65Dd0E8DDAD694846a7fA42123B5d8Cb?chainId=11155111"
+    },
+    {
+      "name": "RequestBuyer",
+      "key": "requestBuyerImpl",
+      "address": "0xfaf6Fa09357C8176bFF05a62719E98C84D481F5A",
+      "codeHash": "0xa3d3155fdaa4dd55fd88aff7ebb24fa8a332740fc1be51502ced5eada48f20f6",
+      "explorerUrl": "https://evm.now/address/0xfaf6Fa09357C8176bFF05a62719E98C84D481F5A?chainId=11155111"
+    },
+    {
+      "name": "RewardSplitter",
+      "key": "rewardSplitter",
+      "address": "0x556a65f7D41b5a607153DC75a76F67f50d85cAF8",
+      "codeHash": "0x7c3c853aa0e659deb7dcf743676cf7d8509f602cbc6d0aefe00b05e27bdbbc35",
+      "explorerUrl": "https://evm.now/address/0x556a65f7D41b5a607153DC75a76F67f50d85cAF8?chainId=11155111"
+    },
+    {
+      "name": "FwaEngineV1",
+      "key": "engine",
+      "address": "0x5Aba995c70F2f0A309337Db81CD03451b1992834",
+      "codeHash": "0xb673153667ffeb1ff32eadcbafc152cef1ab4fa48ef45189eb7b4f1357f4d90f",
+      "explorerUrl": "https://evm.now/address/0x5Aba995c70F2f0A309337Db81CD03451b1992834?chainId=11155111"
+    },
+    {
+      "name": "ChainlinkVrfAdapter",
+      "key": "vrfAdapter",
+      "address": "0x00bD2e9CCAb5642E205C1ab525A410e78557e2B4",
+      "codeHash": "0x94d079e2bb9f192fb943c26700dd0f5eb97c3766ef26306aa347b374ee2229ab",
+      "explorerUrl": "https://evm.now/address/0x00bD2e9CCAb5642E205C1ab525A410e78557e2B4?chainId=11155111"
+    }
+  ],
+  "external": [
+    {
+      "name": "FWA",
+      "address": "0x692542379d6A3fc8115ae2C19787FD5bE21578bD",
+      "explorerUrl": "https://evm.now/address/0x692542379d6A3fc8115ae2C19787FD5bE21578bD?chainId=11155111"
+    },
+    {
+      "name": "FWAToken",
+      "address": "0x14ea7A2087E32610C08c5210E16aD163353F5Fe5",
+      "explorerUrl": "https://evm.now/address/0x14ea7A2087E32610C08c5210E16aD163353F5Fe5?chainId=11155111"
+    },
+    {
+      "name": "FWARewards",
+      "address": "0xc419b2Af53B5dD9B5d67Ce58B6a0aB5995C038e9",
+      "explorerUrl": "https://evm.now/address/0xc419b2Af53B5dD9B5d67Ce58B6a0aB5995C038e9?chainId=11155111"
+    },
+    {
+      "name": "FWATokenDistributorOwner",
+      "address": "0xc0C608d15e59d8D3754D2828b8DD43a03B7026D2",
+      "explorerUrl": "https://evm.now/address/0xc0C608d15e59d8D3754D2828b8DD43a03B7026D2?chainId=11155111"
+    },
+    {
+      "name": "Chainlink VRF coordinator",
+      "address": "0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B",
+      "explorerUrl": "https://evm.now/address/0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B?chainId=11155111"
+    }
+  ],
   "retired": [
     {
       "releaseId": "9ccbfb18",

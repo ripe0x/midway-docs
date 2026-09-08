@@ -1,5 +1,11 @@
 # Changelog
 
+- 2026-09-08, Ethereum Sepolia. First midway-v1 graph on Sepolia, deployed from commit `86d3e152`
+  (blocks 11662947 to 11662963) and unpaused at block 11663012. Open access from Unix time
+  1788895140; RewardVault is a FWAToken distributor. Shape Chase registered as application 1 and
+  resolved a request end to end through live FWA and Chainlink VRF. The earlier Sepolia graph
+  (commit `9ccbfb18`) stays retired. See [Testnet](guides/testnet.md) and
+  [Deployments](reference/deployments.md).
 - midway-v1 rework in progress. Fresh graph: `MidwayBuyer`, `MidwayRegistry`, `FwaEngineV1`,
   `RewardVault`, `RewardSplitter`, and `SharedUpside` are rewritten or changed; `AssetPolicy`,
   `FwaConversionFloor`, `FwaPriceFloor`, `ReferralRewards`, and the batch account infrastructure are

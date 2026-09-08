@@ -1,18 +1,49 @@
 # Testnet
 
-Midway v1 is not yet deployed on Ethereum Sepolia. Once deployed, do not send real funds to Sepolia
-contracts, and do not reuse a Sepolia address in a mainnet transaction. Read the live acquisition
-status before testing. Testnet settings are deliberately faster and less gated than the mainnet
-configuration so builders can exercise the full lifecycle.
+Midway v1 is deployed on Ethereum Sepolia since 2026-09-08. Do not send real funds to Sepolia
+contracts, and do not reuse a Sepolia address in a mainnet transaction. Testnet settings are
+deliberately faster and less gated than the mainnet configuration so builders can exercise the full
+lifecycle.
 
 | Item | Value |
 |---|---|
 | Network | Ethereum Sepolia (`11155111`) |
-| Status | Not yet deployed. See the Sepolia section on [Deployments](../reference/deployments.md). |
-| Addresses | See the Sepolia section on [Deployments](../reference/deployments.md) once deployed. |
-| FWA testnet | [FWA testnet documentation](https://www.fwa.fun/docs/testnet) |
+| Status | Deployed and unpaused. Open access: any registered application may acquire. |
+| Addresses | Sepolia section on [Deployments](../reference/deployments.md) |
+| MidwayBuyer | [`0xb1A0973924BfEf447063E152C8210777D60fE7c8`](https://evm.now/address/0xb1A0973924BfEf447063E152C8210777D60fE7c8?chainId=11155111) |
+| MidwayRegistry | [`0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87`](https://evm.now/address/0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87?chainId=11155111) |
+| FWA testnet | [`0x692542379d6A3fc8115ae2C19787FD5bE21578bD`](https://evm.now/address/0x692542379d6A3fc8115ae2C19787FD5bE21578bD?chainId=11155111), [FWA testnet documentation](https://www.fwa.fun/docs/testnet) |
+| Public RPC | `https://ethereum-sepolia-rpc.publicnode.com` or `https://sepolia.gateway.tenderly.co` |
 
-`RewardVault` must be a FWAToken distributor before credited $FWA can leave it. On Sepolia,
-registration is permissionless through FWA's `FWATokenDistributorOwner.setDistributor(integrationAddress)`.
-On mainnet, the FWAToken owner reviews and approves the contract. Check
-`readiness(account).distributorGranted` on either network before relying on `settleForFwat`.
+## How Sepolia differs from mainnet
+
+- **Access is open.** `MidwayRegistry.scheduleOpenAccess` ran at deployment, so
+  `registerApplication` is the only step before `acquire`. No operator allowlisting.
+- **$FWA legs work.** `RewardVault` is already a FWAToken distributor, so `settleForFwat`,
+  `claimEpochRewards`, `claimAccruedRewards` and `payoutRewards` all move tokens. Check
+  `readiness(account).distributorGranted` anyway; it is the same read you will make on mainnet.
+- **Shared Upside cycles are 5 minutes** with draws off, so activity records and the cycle ledger can
+  be watched quickly. Enabling draws is an owner action.
+- **FWA Sepolia is small and cheap.** A handful of listings, a pool fee around 0.0034 ETH and a VRF
+  fee that depends on gas price (about 0.001 ETH at 2 gwei). Odds on any one listing are therefore
+  far higher than on mainnet; do not read economics from it. FWA Sepolia's settlement window is 24
+  hours and its finalize window 7 days, versus 1 hour and 1 hour on mainnet at the time of writing.
+  Its deposit whitelist is disabled, so any ERC721 can be listed.
+- **Chainlink VRF is live.** A Sepolia acquisition settles through the real coordinator, usually within
+  a minute or two. Read `requestStatus(id).state` until it leaves `Pending`.
+
+## Walkthrough
+
+1. Register: `MidwayRegistry.registerApplication(rewardRecipient, address(0), account)` from the
+   account itself so it binds immediately. A contract account should do this from its own code so it
+   is also the application admin (see [Application admin](application-admin.md)).
+2. Quote and acquire: `MidwayBuyer.quoteAcquisition()` at a real gas price (the VRF leg prices off
+   `tx.gasprice`; an `eth_call` at gas price 0 omits it), then `acquire(false)` with a few percent
+   above `totalRequired`; the excess returns in the same call.
+3. Wait for the draw, then settle: `settleForEth([id])` (anyone), or `deliverNFT(id, to)` from the
+   account. Budget gas from an estimate: a delivery that also triggers downstream work in your
+   contract can need several million gas.
+
+A complete v1 application, Shape Chase, runs on this graph as application 1 (account
+[`0xEcb2D8B9ed4389c044187D7B531fc4e736d57029`](https://evm.now/address/0xEcb2D8B9ed4389c044187D7B531fc4e736d57029?chainId=11155111));
+its first request was resolved end to end through live FWA and Chainlink VRF on the deployment day.
