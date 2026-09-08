@@ -4,7 +4,7 @@
 
 Splits purchaser rewards three ways: treasury, shared upside, and the application. All         shares stay in RewardVault custody as pot attributions: `RewardVault.payout` resolves and         pays the application share to whoever the registry currently names, so delivery imposes         no requirement on the recipient beyond the pot existing.
 
-**Address**: not yet deployed. `midway-v1` is pending deployment.
+**Address**: [`0xB6851C7845cFe56dbaF2234367C8367AB6682434`](https://evm.now/address/0xB6851C7845cFe56dbaF2234367C8367AB6682434?chainId=1)
 **Source**: `src/midway/RewardSplitter.sol`
 
 ## Functions

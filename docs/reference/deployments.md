@@ -5,11 +5,38 @@
 ## Mainnet
 
 - **Release**: `midway-v1`
-- **Status**: Not yet deployed. `midway-v1` is pending deployment.
+- **Deploy block**: 25933616
+- **Source**: tag `midway-v1-audit-rc1`, commit `9b8315bba8dd29d63b544477cbd7fba14b0599d3`
+- **Status**: Paused. Activation pending.
 
 ### Contracts
 
-No `midway-v1` contract is deployed on this network yet.
+| Contract | Address | Runtime code hash |
+| --- | --- | --- |
+| RewardVault | [`0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22`](https://evm.now/address/0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22?chainId=1) | `0xbef38e12...` |
+| MidwayRegistry | [`0x837C686Be67f23f04A1d55B681b95F014590dc9A`](https://evm.now/address/0x837C686Be67f23f04A1d55B681b95F014590dc9A?chainId=1) | `0xe3797e7e...` |
+| MidwayBuyer | [`0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180`](https://evm.now/address/0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180?chainId=1) | `0x2a13f0de...` |
+| SharedUpside | [`0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2`](https://evm.now/address/0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2?chainId=1) | `0x10b26104...` |
+| RequestBuyer | [`0x570af983A58877febf5eF653357Aa3A334d7b009`](https://evm.now/address/0x570af983A58877febf5eF653357Aa3A334d7b009?chainId=1) | `0xa3d3155f...` |
+| RewardSplitter | [`0xB6851C7845cFe56dbaF2234367C8367AB6682434`](https://evm.now/address/0xB6851C7845cFe56dbaF2234367C8367AB6682434?chainId=1) | `0xbb6b25fc...` |
+| FwaEngineV1 | [`0xd372c38Adc63Aa264F023AEe7A57C2261B67a435`](https://evm.now/address/0xd372c38Adc63Aa264F023AEe7A57C2261B67a435?chainId=1) | `0x08de63f6...` |
+| ChainlinkVrfAdapter | [`0x973797f122523FaaF5b2D3777fB2429C59BB8779`](https://evm.now/address/0x973797f122523FaaF5b2D3777fB2429C59BB8779?chainId=1) | `0x3b4b14cf...` |
+
+<details>
+<summary>Full runtime code hashes</summary>
+
+| Contract | Runtime code hash |
+| --- | --- |
+| RewardVault | `0xbef38e12a6e5000c3a6eafbd6ccbf8d777c956a8e55852a7eb999a4cb87a3087` |
+| MidwayRegistry | `0xe3797e7ec920cafe5842dc89a0ec697694bdb1cbd94f419a39ca189b828b06ac` |
+| MidwayBuyer | `0x2a13f0de6a2cb46226e2b5356512a7bf9e65a5996593d0abfaa6449c53cfcc9c` |
+| SharedUpside | `0x10b26104a4b22f277447061d622f446663874de0adbcfd370ede1d261c2bfda4` |
+| RequestBuyer | `0xa3d3155fdaa4dd55fd88aff7ebb24fa8a332740fc1be51502ced5eada48f20f6` |
+| RewardSplitter | `0xbb6b25fc0a161b00d10ec8599e4bda667aae5b14df35a0d529231a55b8e13211` |
+| FwaEngineV1 | `0x08de63f6aa831e9a244ed9999fd9677a066f0f07d3e61d2995d7cb50907a4e32` |
+| ChainlinkVrfAdapter | `0x3b4b14cf748c16386d6a530a184e766f5e79ec80711e8af72c3bd3b82f14592a` |
+
+</details>
 
 ### External contracts
 

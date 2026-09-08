@@ -4,7 +4,7 @@
 
 Midway's FWA integration: turns a funded `acquireFor` call into an FWA pack purchase and         drives that request to settlement, NFT delivery, or refund.
 
-**Address**: not yet deployed. `midway-v1` is pending deployment.
+**Address**: [`0xd372c38Adc63Aa264F023AEe7A57C2261B67a435`](https://evm.now/address/0xd372c38Adc63Aa264F023AEe7A57C2261B67a435?chainId=1)
 **Source**: `src/midway/FwaEngineV1.sol`
 
 ## Functions

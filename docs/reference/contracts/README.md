@@ -4,11 +4,11 @@
 
 | Contract | Source | Address | Functions | Events | Errors |
 | --- | --- | --- | --- | --- | --- |
-| [MidwayBuyer](midway-buyer.md) | `src/midway/MidwayBuyer.sol` | Pending deployment | 39 | 14 | 13 |
-| [MidwayRegistry](midway-registry.md) | `src/midway/MidwayRegistry.sol` | Pending deployment | 37 | 15 | 12 |
-| [FwaEngineV1](fwa-engine-v1.md) | `src/midway/FwaEngineV1.sol` | Pending deployment | 45 | 10 | 20 |
-| [RequestBuyer](request-buyer.md) | `src/midway/RequestBuyer.sol` | Pending deployment | 19 | 0 | 9 |
-| [RewardVault](reward-vault.md) | `src/midway/RewardVault.sol` | Pending deployment | 18 | 8 | 6 |
-| [RewardSplitter](reward-splitter.md) | `src/midway/RewardSplitter.sol` | Pending deployment | 15 | 3 | 4 |
-| [SharedUpside](shared-upside.md) | `src/midway/SharedUpside.sol` | Pending deployment | 56 | 13 | 18 |
-| [ChainlinkVrfAdapter](chainlink-vrf-adapter.md) | `src/midway/ChainlinkVrfAdapter.sol` | Pending deployment | 18 | 8 | 9 |
+| [MidwayBuyer](midway-buyer.md) | `src/midway/MidwayBuyer.sol` | [`0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180`](https://evm.now/address/0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180?chainId=1) | 39 | 14 | 13 |
+| [MidwayRegistry](midway-registry.md) | `src/midway/MidwayRegistry.sol` | [`0x837C686Be67f23f04A1d55B681b95F014590dc9A`](https://evm.now/address/0x837C686Be67f23f04A1d55B681b95F014590dc9A?chainId=1) | 37 | 15 | 12 |
+| [FwaEngineV1](fwa-engine-v1.md) | `src/midway/FwaEngineV1.sol` | [`0xd372c38Adc63Aa264F023AEe7A57C2261B67a435`](https://evm.now/address/0xd372c38Adc63Aa264F023AEe7A57C2261B67a435?chainId=1) | 45 | 10 | 20 |
+| [RequestBuyer](request-buyer.md) | `src/midway/RequestBuyer.sol` | [`0x570af983A58877febf5eF653357Aa3A334d7b009`](https://evm.now/address/0x570af983A58877febf5eF653357Aa3A334d7b009?chainId=1) | 19 | 0 | 9 |
+| [RewardVault](reward-vault.md) | `src/midway/RewardVault.sol` | [`0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22`](https://evm.now/address/0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22?chainId=1) | 18 | 8 | 6 |
+| [RewardSplitter](reward-splitter.md) | `src/midway/RewardSplitter.sol` | [`0xB6851C7845cFe56dbaF2234367C8367AB6682434`](https://evm.now/address/0xB6851C7845cFe56dbaF2234367C8367AB6682434?chainId=1) | 15 | 3 | 4 |
+| [SharedUpside](shared-upside.md) | `src/midway/SharedUpside.sol` | [`0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2`](https://evm.now/address/0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2?chainId=1) | 56 | 13 | 18 |
+| [ChainlinkVrfAdapter](chainlink-vrf-adapter.md) | `src/midway/ChainlinkVrfAdapter.sol` | [`0x973797f122523FaaF5b2D3777fB2429C59BB8779`](https://evm.now/address/0x973797f122523FaaF5b2D3777fB2429C59BB8779?chainId=1) | 18 | 8 | 9 |

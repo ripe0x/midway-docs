@@ -4,7 +4,7 @@
 
 Application-facing front door for FWA pack acquisition, status, settlement, and reward         claims. The only address an integrator indexes.
 
-**Address**: not yet deployed. `midway-v1` is pending deployment.
+**Address**: [`0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180`](https://evm.now/address/0xC6B81466F40DdA21f23977ea0cf9C322FF5b7180?chainId=1)
 **Source**: `src/midway/MidwayBuyer.sol`
 
 ## Functions

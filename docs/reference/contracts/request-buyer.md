@@ -4,7 +4,9 @@
 
 Single-use FWA purchaser for one Midway request.
 
-**Address**: not yet deployed. `midway-v1` is pending deployment.
+**Address**: [`0x570af983A58877febf5eF653357Aa3A334d7b009`](https://evm.now/address/0x570af983A58877febf5eF653357Aa3A334d7b009?chainId=1)
+
+The listed address is the implementation cloned per request.
 **Source**: `src/midway/RequestBuyer.sol`
 
 ## Functions

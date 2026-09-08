@@ -4,7 +4,7 @@
 
 Weekly-cycle draw over every application's FWAT skim, funded by `RewardSplitter`'s         shared-upside leg. Weight accrues per application per cycle from settlement spend;         `checkpoint` closes a finished cycle and requests a VRF-selected winner weighted by that         cycle's activity, paid the configured share of the cycle's pot.
 
-**Address**: not yet deployed. `midway-v1` is pending deployment.
+**Address**: [`0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2`](https://evm.now/address/0x0c5cBf7bE69c77ee8802b6Db377f17189b417Bc2?chainId=1)
 **Source**: `src/midway/SharedUpside.sol`
 
 ## Functions

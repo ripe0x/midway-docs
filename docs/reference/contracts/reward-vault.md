@@ -4,7 +4,7 @@
 
 FWAT custody with measured ingress and address-owned pots.
 
-**Address**: not yet deployed. `midway-v1` is pending deployment.
+**Address**: [`0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22`](https://evm.now/address/0x3197f0947863B1E0A8c1DE8539ADfCB5535f1E22?chainId=1)
 **Source**: `src/midway/RewardVault.sol`
 
 ## Functions

@@ -4,7 +4,7 @@
 
 Immutable Chainlink VRF v2.5 bridge for SharedUpside's cycle/attempt callback ABI.
 
-**Address**: not yet deployed. `midway-v1` is pending deployment.
+**Address**: [`0x973797f122523FaaF5b2D3777fB2429C59BB8779`](https://evm.now/address/0x973797f122523FaaF5b2D3777fB2429C59BB8779?chainId=1)
 **Source**: `src/midway/ChainlinkVrfAdapter.sol`
 
 ## Functions
