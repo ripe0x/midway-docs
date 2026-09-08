@@ -10,9 +10,7 @@ lifecycle.
 | Network | Ethereum Sepolia (`11155111`) |
 | Status | Deployed and unpaused. Open access: any registered application may acquire. |
 | Addresses | Sepolia section on [Deployments](../reference/deployments.md) |
-| MidwayBuyer | [`0xb1A0973924BfEf447063E152C8210777D60fE7c8`](https://evm.now/address/0xb1A0973924BfEf447063E152C8210777D60fE7c8?chainId=11155111) |
-| MidwayRegistry | [`0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87`](https://evm.now/address/0xB7DfE27c1dE5F2b33e3A0B1A95811ae4d5663b87?chainId=11155111) |
-| FWA testnet | [`0x692542379d6A3fc8115ae2C19787FD5bE21578bD`](https://evm.now/address/0x692542379d6A3fc8115ae2C19787FD5bE21578bD?chainId=11155111), [FWA testnet documentation](https://www.fwa.fun/docs/testnet) |
+| FWA testnet | [FWA testnet documentation](https://www.fwa.fun/docs/testnet) |
 | Public RPC | `https://ethereum-sepolia-rpc.publicnode.com` or `https://sepolia.gateway.tenderly.co` |
 
 ## How Sepolia differs from mainnet
@@ -44,6 +42,5 @@ lifecycle.
    account. Budget gas from an estimate: a delivery that also triggers downstream work in your
    contract can need several million gas.
 
-A complete v1 application, Shape Chase, runs on this graph as application 1 (account
-[`0xEcb2D8B9ed4389c044187D7B531fc4e736d57029`](https://evm.now/address/0xEcb2D8B9ed4389c044187D7B531fc4e736d57029?chainId=11155111));
-its first request was resolved end to end through live FWA and Chainlink VRF on the deployment day.
+A complete v1 application, Shape Chase, runs on this graph as application 1. Its first request was
+resolved end to end through live FWA and Chainlink VRF on the deployment day.

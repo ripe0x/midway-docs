@@ -10,9 +10,9 @@ everything between those two facts: it drives the FWA lifecycle, settles for ETH
 input, and delivers $FWA or an NFT on the account's own terms.
 
 {% hint style="warning" %}
-Midway v1 is not yet deployed on Ethereum mainnet. The v1 graph replaces `midway-v0.1`, which is
-retired. See [Deployments](reference/deployments.md) for current status and no addresses until
-launch.
+Midway v1 is deployed on Ethereum mainnet and remains paused pending activation. The v1 graph
+replaces the retired `midway-v0.1` graph. See [Deployments](reference/deployments.md) for the
+verified addresses, runtime code hashes, and current launch status.
 {% endhint %}
 
 Start with the [Quickstart](quickstart/README.md) to register an application and make your first
