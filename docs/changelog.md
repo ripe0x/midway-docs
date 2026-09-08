@@ -7,9 +7,11 @@
   (commit `9ccbfb18`) stays retired. See [Testnet](guides/testnet.md) and
   [Deployments](reference/deployments.md).
 - 2026-09-08, Ethereum mainnet. Midway v1 deployed from commit `9b8315bb` at blocks 25933616 to
-  25933650. Ownership and operator authority were handed off to the Midway admin. The graph remains
-  paused, Shared Upside draws remain disabled, and the FWAToken distributor grant for `RewardVault`
-  is outstanding. `midway-v0.1` is retired, superseded before third-party use. See
+  25933650. Ownership and operator authority were handed off to the Midway admin. The graph was
+  unpaused under curated access at block 25935066
+  ([`0xa11412ef...f3cf`](https://evm.now/tx/0xa11412ef58cc9bd3ee1ca3b7d2a902bd0b3bf7361d763fe81768e6de7ebaf3cf?chainId=1)).
+  Shared Upside draws remain disabled, and the FWAToken distributor grant for `RewardVault` is
+  outstanding. `midway-v0.1` is retired, superseded before third-party use. See
   [Deployments](reference/deployments.md).
 - 2026-09-07, Ethereum mainnet. Midway unpaused for acquisitions, under curated access with one
   operator-allowlisted application. `MidwayRegistry.setApplicationAllowed(1, true)`

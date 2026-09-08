@@ -1,8 +1,10 @@
 {
   "chainId": 1,
   "releaseId": "midway-v1",
-  "status": "paused",
+  "status": "active",
   "deployBlock": 25933616,
+  "unpausedBlock": 25935066,
+  "statusLine": "Deployed and unpaused since block 25935066. Curated access; the operator allowlists applications. ETH settlement and NFT delivery are live. FWAT settlement and reward payouts remain pending the RewardVault distributor grant. Shared Upside draws are off.",
   "tag": "midway-v1-audit-rc1",
   "commit": "9b8315bba8dd29d63b544477cbd7fba14b0599d3",
   "deployer": "0xCB43078C32423F5348Cab5885911C3B5faE217F9",

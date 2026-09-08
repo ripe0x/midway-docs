@@ -7,7 +7,7 @@
 - **Release**: `midway-v1`
 - **Deploy block**: 25933616
 - **Source**: tag `midway-v1-audit-rc1`, commit `9b8315bba8dd29d63b544477cbd7fba14b0599d3`
-- **Status**: Paused. Activation pending.
+- **Status**: Deployed and unpaused since block 25935066. Curated access; the operator allowlists applications. ETH settlement and NFT delivery are live. FWAT settlement and reward payouts remain pending the RewardVault distributor grant. Shared Upside draws are off.
 
 ### Contracts
 

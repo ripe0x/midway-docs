@@ -9,10 +9,10 @@ request through the `MidwayBuyer`, and receives the result at the account it nam
 everything between those two facts: it drives the FWA lifecycle, settles for ETH with no price
 input, and delivers $FWA or an NFT on the account's own terms.
 
-{% hint style="warning" %}
-Midway v1 is deployed on Ethereum mainnet and remains paused pending activation. The v1 graph
-replaces the retired `midway-v0.1` graph. See [Deployments](reference/deployments.md) for the
-verified addresses, runtime code hashes, and current launch status.
+{% hint style="info" %}
+Midway v1 is deployed and unpaused on Ethereum mainnet under curated access. ETH settlement and NFT
+delivery are live. $FWA settlement and reward payouts remain pending the RewardVault distributor
+grant. See [Deployments](reference/deployments.md) for verified addresses and current status.
 {% endhint %}
 
 Start with the [Quickstart](quickstart/README.md) to register an application and make your first

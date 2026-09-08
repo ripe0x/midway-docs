@@ -63,14 +63,16 @@ implementation for future activity. Old engines retain permissionless historical
 ## Mainnet launch status
 
 Midway v1 is deployed on Ethereum mainnet with ownership and operator authority handed off. The
-deployment is paused, and Shared Upside draws remain disabled. The VRF consumer migration, launch
-configuration readbacks, documentation and tester updates, and audit work are complete.
+deployment is unpaused under curated access, and Shared Upside draws remain disabled. The VRF
+consumer migration, launch configuration readbacks, documentation and tester updates, and audit
+work are complete. ETH settlement and NFT delivery are live.
 
-Before production activation:
+Remaining launch operations:
 
-- the FWAToken owner must grant the v1 `RewardVault` distributor status;
+- the FWAToken owner must grant the v1 `RewardVault` distributor status before $FWA settlement and
+  reward payouts can operate;
 - the mainnet keeper profile must be deployed and checked against a live request; and
-- the Midway owner must allow the intended applications and unpause acquisitions. Shared Upside
-  draws are enabled separately after real application activity exists.
+- the Midway operator must allow each intended application. Shared Upside draws are enabled
+  separately after real application activity exists.
 
 See [Deployments](deployments.md) for verified addresses, runtime code hashes, and current status.
