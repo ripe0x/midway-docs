@@ -42,5 +42,7 @@ lifecycle.
    account. Budget gas from an estimate: a delivery that also triggers downstream work in your
    contract can need several million gas.
 
-A complete v1 application, Shape Chase, runs on this graph as application 1. Its first request was
-resolved end to end through live FWA and Chainlink VRF on the deployment day.
+A complete v1 application, Shape Chase, runs on this graph (application 2, account
+[`0x0510B830de4F2230aC4894292ae4e7ab1b3c2105`](https://evm.now/address/0x0510B830de4F2230aC4894292ae4e7ab1b3c2105?chainId=11155111)).
+Its first build, application 1, resolved a request end to end through live FWA and Chainlink VRF on
+the deployment day.
